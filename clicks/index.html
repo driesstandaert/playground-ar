@@ -17,7 +17,7 @@
                 const modelId = this.el.getAttribute('id');
                 const modelName = this.el.getAttribute('name');
                 const div = document.querySelector('.js-label');
-                div.innerHTML += `<span class="c-icon c-icon-${modelId}"></span>`;
+                div.innerHTML += `<span class="c-icon c-icon-${modelId}">🦊</span>`;
                 setTimeout(function() {
                   document.querySelector(`.c-icon-${modelId}`).className += ' is-visible'
                 }, 3);
