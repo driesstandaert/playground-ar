@@ -23,13 +23,20 @@
 }
 
 .c-icon {
-  background-color: red;
-  border-radius: 25px;
+  border-radius: 20px;
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   text-align: center;
-  box-shadow: 10px -10px  rgba(0,0,0,0.6);
+  box-shadow: 4px 2px 4px rgba(0,0,0,0.4);
+  margin-right: 4px;
+  transition: all 3s ease;
+  opacity: 0;
+}
+
+.is-visible {
+  opacity: 1;
+  transition: all 3s ease;
 }
 
 .c-icon-mouse {
