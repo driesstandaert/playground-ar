@@ -8,6 +8,9 @@
   color: white;
   z-index: 999999;
   left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .is-centered {
@@ -40,16 +43,30 @@
 }
 
 .c-icon-mouse {
-  background-color: red;
+  background-color: #C974AF;
   background-image: url(../icons/c-icon-mouse.svg);
   background-size: contain;
 }
 
 .c-icon-hummingbird {
-  background-color: red;
+  background-color: #FFD147;
   background-image: url(../icons/c-icon-hummingbird.svg);
   background-size: contain;
 }
+
+.c-icon-beaver {
+  background-color: #5FB1E1;
+  background-image: url(../icons/c-icon-beaver.svg);
+  background-size: contain;
+}
+
+
+.c-icon-trout {
+  background-color: #32B454;
+  background-image: url(../icons/c-icon-trout.svg);
+  background-size: contain;
+}
+
 
 button {
   display: flex;
