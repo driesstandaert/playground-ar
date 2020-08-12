@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clicks</title>
+    <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+</head>
+
+<script>
+    AFRAME.registerComponent('clickhandler', {
+        init: function() {
+            this.el.addEventListener('click', () => {
+                const modelId = this.el.getAttribute('id');
+                const modelName = this.el.getAttribute('name');
+                const div = document.querySelector('.js-label');
+
+                div.innerHTML += `<span class="c-icon c-icon-${modelId}"></span>`;
+
+                // Set visible false or display none does not work
+                // this.el.setAttribute('visible', 'false');
+                // this.el.style.display = "none";
+
+                // Shrink scale to be invisible
+                this.el.setAttribute('scale', '0 0 0');
+                
+
+                console.log(modelName);
+                console.log(this.el.getAttribute('distance'))
+                console.log(this.el.getAttribute('scale'))
+            });
+    }});
+</script>
+
+<body style='margin: 0; overflow: hidden;'>
+
+  <div class="c-label js-label is-centered"></div>
+
+  <a-scene
+    cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
+    raycaster="objects: [clickhandler];"
+    vr-mode-ui="enabled: false"
+    embedded
+    arjs='sourceType: webcam; debugUIEnabled: false;'
+  >
+
+    <a-box
+      clickhandler
+      id="box"
+      name="Box"
+      material="color: red;"
+      scale="2 2 2"
+      gps-entity-place="latitude: 51.622246; longitude: -0.178072;" 
+    >
+    </a-box>
+
+    <a-entity 
+      clickhandler
+      id="mouse"
+      name="Ratatat"
+      gps-entity-place="latitude: 51.6220686; longitude: -0.1779559;" 
+      gltf-model="../assets/mouse/scene.gltf" 
+      animation-mixer="" 
+      scale="0.01 0.01 0.01"
+    >
+    </a-entity>
+
+    <a-entity 
+      clickhandler
+      id="trout"
+      name="Trout"
+      gps-entity-place="latitude: 51.621880; longitude: -0.177922;" 
+      gltf-model="../assets/trout/scene.gltf" 
+      animation-mixer="" 
+      scale="0.5 0.5 0.5"
+    >
+    </a-entity>
+
+    <a-camera gps-camera rotation-reader></a-camera>
+	</a-scene>
+</body>

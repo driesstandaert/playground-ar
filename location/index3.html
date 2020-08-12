@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    
+    <script src="https://unpkg.com/aframe-extras.animation-mixer@3.13.1/dist/aframe-extras.animation-mixer.min.js"></script>
+    
+    
+  </head>
+  <body>
+    <a-scene>
+   
+      <a-entity position="0 1.8 4">
+        <a-camera id="camera" 
+                  look-controls="" 
+                  wasd-controls="" 
+                  camera="active:true" 
+                  rotation="0 0 0" 
+                  position="0 0 0">
+        </a-camera>
+      </a-entity>   
+    <a-assets>
+      <img id="frontS" src="https://cdn.rawgit.com/entropy9/GLTF2/b9e193a8/src_models/pbrstingray/patchy_cement1_Base_Color.png">
+      <img id="pool" src="https://i1.wp.com/www.samrohn.com/wp-content/uploads/tobacco-warehouse-panorama.jpg">
+
+      
+      <a-asset-item src="https://raw.githubusercontent.com/entropy9/GLTF2/master/src_models/sphere_bot_rusty_version/scene.gltf"  id="drone"></a-asset-item>
+    </a-assets>  
+      
+<!-- 
+Animation-mixer to animate models from clip name.
+use '*' for wildcard.
+clip names try:
+08_Sphere_bot_Bake_Pose
+07_Sphere_bot_Jump
+06_Sphere_bot_Run_Attack
+05_Sphere_bot_WalkCycle
+04_Sphere_bot_Attack
+03_Sphere_bot_Open
+02_Sphere_bot_Run_Cycle
+01_Sphere_bot_Roll
+
+      -->
+ 
+      <a-entity cursor-listener gltf-model="#drone" animation-mixer="clip: 07_Sphere_bot_Jump; duration: AUTO; crossFadeDuration: 0" sphericalEnvMap="#pool" scale="1 1 1" material="roughness: 0; sphericalEnvMap: #pool; metalness: 0"  position="-1 0 -3" shadow="receive: true" rotation="0 0 0" samsung-logo>
+</a-entity>
+  
+      
+ <!-- add global lighting -->
+      <a-entity light="type: ambient; castShadow:false; color: #fff; intensity: 0.4"></a-entity>
+      <a-entity light="type:directional; 
+      castShadow:true;
+      shadowBias:0.0000001; 
+      intensity: 1; 
+      shadowMapHeight:2048; 
+      shadowMapWidth:2048;" 
+      position="-2 3 2" 
+      target="#directionaltarget">
+      <a-entity id="directionaltarget" position="2 0 -6" shadow="cast:false;receive:false;" ></a-entity>
+      </a-entity>
+
+      <a-plane position="-1 0.1 -3" rotation="-90 0 0" alphatest="1" metalness="0.2" transparent="true" opacity="1" shadow="cast:false;receive:true;" width="8" height="8" color="#ffffff" material="src: #frontS; color: #696969; roughness: 0; sphericalEnvMap: #pool; metalness: 0" ></a-plane>
+      <a-sky src="#pool"></a-sky>
+    </a-scene>
+  </body>
+</html>

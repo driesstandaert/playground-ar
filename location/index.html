@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GeoAR.js demo</title>
+    <script src='https://aframe.io/releases/1.0.4/aframe.min.js'></script>
+    <!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script> -->
+     <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/3.2.0/aframe/build/aframe-ar-nft.js"></script> -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+        // THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/AR-js-org/AR.js/master/three.js'
+        // THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+    <script src="./scripts.js"></script>
+    <script>
+      AFRAME.registerComponent('clickhandler', {
+          init: function() {
+              this.el.addEventListener('click', () => {
+                  alert('Clicked!')
+              });
+      }});
+  </script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <style>
+      .distance {
+        position: fixed;
+        top: 7%;
+        font-family: monospace;
+        font-size: 1.25em;
+        color: white;
+        z-index: 999999;
+      }
+    </style>
+</head>
+
+<body style='margin: 0; overflow: hidden;'>
+    <!-- <div class="centered distance">test</div> -->
+    <!-- <a-scene 
+        vr-mode-ui='enabled: false' 
+        embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+        <a-camera gps-camera rotation-reader></a-camera>
+    </a-scene> -->
+
+    <a-scene
+      cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
+      raycaster="objects: [clickhandler];"
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+    >
+      <!-- <a-text
+        value="This content will always face you."
+        look-at="[gps-camera]"
+        scale="120 120 120"
+        gps-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>;"
+      ></a-text> -->
+
+      <a-entity 
+      id="mousey"
+      gps-entity-place="latitude: 51.6220686; longitude: -0.1779559;" 
+      gltf-model="../assets/mouse/scene.gltf" 
+      animation-mixer="" 
+      scale="0.01 0.01 0.01"
+      clickhandler
+      >
+      </a-entity>
+
+      <a-box
+            clickhandler
+            material="color: red;"
+            scale="2 2 2"
+            gps-entity-place="latitude: 51.622166; longitude: -0.177843;" 
+        >
+        </a-box>
+
+      <a-camera gps-camera rotation-reader> </a-camera>
+    </a-scene>
+
+
+
+
+<!-- <div class="centered">
+    <button data-action="change"></button>
+</div> -->
+</body>
