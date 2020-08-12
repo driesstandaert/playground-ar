@@ -19,7 +19,7 @@
                 const div = document.querySelector('.js-label');
                 div.innerHTML += `<span class="c-icon c-icon-${modelId}"></span>`;
                 setTimeout(function() {
-                  document.querySelector(`c-icon-${modelId}`).className = "is-visible";
+                  document.querySelector(`.c-icon-${modelId}`).className = 'is-visible'
                 }, 3);
 
                 // Set visible false or display none does not work
