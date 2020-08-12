@@ -10,7 +10,7 @@ function staticLoadPlaces() {
   return [
     {
       name: 'beaver',
-      url: '../assets/beaver/beaver.gltf',
+      url: '../assets/animals/beaver/beaver.gltf',
       scale: '0.02 0.02 0.02',
       textscale: '3 3 3',
       location: {
@@ -22,7 +22,7 @@ function staticLoadPlaces() {
     },
     {
       name: 'trout',
-      url: '../assets/trout/scene.gltf',
+      url: '../assets/animals/trout/scene.gltf',
       scale: '0.5 0.5 0.5',
       textscale: '3 3 3',
       location: {
@@ -32,7 +32,7 @@ function staticLoadPlaces() {
     },
     {
       name: 'mouse',
-      url: '../assets/mouse/scene.gltf',
+      url: '../assets/animals/mouse/scene.gltf',
       scale: '0.01 0.01 0.01',
       textscale: '3 3 3',
       location: {
@@ -42,7 +42,7 @@ function staticLoadPlaces() {
     },
     {
       name: 'bridge',
-      url: '../assets/bridge/scene.gltf',
+      url: '../assets/animals/bridge/scene.gltf',
       scale: '1 1 1',
       textscale: '3 3 3',
       location: {

@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Clicks</title>
+    <title>Sealife</title>
     <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -51,71 +51,19 @@
 
 
   <a-assets>
-    <a-asset-item id="beaver" src="../assets/animals/beaver/beaver.gltf"></a-asset-item>
-    <a-asset-item id="mouse" src="../assets/animals/mouse/scene.gltf"></a-asset-item>
-    <a-asset-item id="trout" src="../assets/animals/trout/scene.gltf"></a-asset-item>
-    <a-asset-item id="hummingbird" src="../assets/animals/hummingbird/scene.gltf"></a-asset-item>
+    <a-asset-item id="dolpin" src="../assets/sealife/dolpin/scene.gltf"></a-asset-item>
   </a-assets>
 
-    <!-- <a-box
-      clickhandler
-      id="box"
-      name="Box"
-      material="color: red;"
-      scale="2 2 2"
-      gps-entity-place="latitude: 51.622246; longitude: -0.178072;">
-    </a-box> -->
-
     <a-entity 
       clickhandler
-      id="mouse"
-      name="Ratatat"
+      id="dolphin"
+      name="dolphin"
       scale="0.01 0.01 0.01"
-      rotation="0 180 0"
-      gps-entity-place="latitude: 51.621935; longitude: -0.177955;"
-      gltf-model="#mouse"
+      rotation="0 0 0"
+      gps-entity-place="latitude: 51.6220631; longitude: -0.1779587;"
+      gltf-model="#dolphin"
       animation-mixer="">
     </a-entity>
-
-    <a-entity 
-      clickhandler
-      id="trout"
-      name="Trout"
-      scale="0.5 0.5 0.5"
-      gps-entity-place="latitude: 51.621880; longitude: -0.177922;"
-      gltf-model="#trout"
-      animation-mixer="">
-    </a-entity>
-
-    <a-entity 
-      clickhandler
-      id="hummingbird"
-      name="Hummingbird"
-      scale="5 5 5"
-      gps-entity-place="latitude: 51.621916; longitude: -0.177930;"
-      gltf-model="#hummingbird"
-      animation-mixer="">
-    </a-entity>
-
-    <a-entity 
-      clickhandler
-      id="beaver"
-      name="beaver"
-      scale="0.01 0.01 0.01"
-      gps-entity-place="latitude: 51.621982; longitude: -0.178079;"
-      gltf-model="#beaver"
-      animation-mixer="">
-    </a-entity>
-
-    <!-- <a-entity 
-      clickhandler
-      id="chicken"
-      name="Chicken"
-      scale="0.01 0.01 0.01"
-      gps-entity-place="latitude: 51.622096; longitude: -0.177988;"
-      gltf-model="#chicken"
-      animation-mixer="">
-    </a-entity> -->
 
     <a-camera gps-camera rotation-reader></a-camera>
 	</a-scene>
