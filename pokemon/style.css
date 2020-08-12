@@ -1,0 +1,84 @@
+
+
+.c-label {
+  position: fixed;
+  top: 10px;
+  font-family: monospace;
+  font-size: 1.25em;
+  color: white;
+  z-index: 999999;
+  left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.is-centered {
+  justify-content: center;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0px auto;
+  left: 0;
+  right: 0;
+}
+
+.c-icon {
+  background-color: blue;
+  border-radius: 20px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  box-shadow: 4px 2px 4px rgba(0,0,0,0.4);
+  margin-right: 4px;
+  transition: all .3s ease;
+  transform: scale(0);
+}
+
+.is-visible {
+  transform: scale(1);
+  transition: all .3s ease;
+}
+
+.c-icon-mouse {
+  background-color: #C974AF;
+  background-image: url(../icons/c-icon-mouse.svg);
+  background-size: contain;
+}
+
+.c-icon-hummingbird {
+  background-color: #FFD147;
+  background-image: url(../icons/c-icon-hummingbird.svg);
+  background-size: contain;
+}
+
+.c-icon-beaver {
+  background-color: #5FB1E1;
+  background-image: url(../icons/c-icon-beaver.svg);
+  background-size: contain;
+}
+
+
+.c-icon-trout {
+  background-color: #32B454;
+  background-image: url(../icons/c-icon-trout.svg);
+  background-size: contain;
+}
+
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  background-color: transparent;
+  width: 2em;
+  height: 2em;
+  border-radius: 100%;
+  font-size: 2em;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  outline: none;
+}
