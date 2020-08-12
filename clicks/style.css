@@ -42,8 +42,9 @@
 
 .c-icon-mouse {
   background-color: red;
-  background-image: url(../icons/c-icon-mouse.svg);
-  background-size: contain;
+  /* background-image: url(../icons/c-icon-mouse.svg);
+  background-size: contain; */
+  content: '🐀';
 }
 
 button {
