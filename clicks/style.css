@@ -40,11 +40,14 @@
   transition: all .3s ease;
 }
 
-.c-icon-mouse {
+.c-icon-mouse:after {
   background-color: red;
   /* background-image: url(../icons/c-icon-mouse.svg);
   background-size: contain; */
-  content: '🐀';
+  content:'🐀';
+  width: 40px;
+  height: 40px;
+  position: absolute;
 }
 
 button {
