@@ -32,11 +32,11 @@
   box-shadow: 4px 2px 4px rgba(0,0,0,0.4);
   margin-right: 4px;
   transition: all .3s ease;
-  opacity: 0;
+  transform: scale(0);
 }
 
 .is-visible {
-  opacity: 1;
+  transform: scale(1);
   transition: all .3s ease;
 }
 
