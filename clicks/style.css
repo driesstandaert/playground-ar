@@ -40,14 +40,16 @@
   transition: all .3s ease;
 }
 
-.c-icon-mouse:after {
+.c-icon-mouse {
   background-color: red;
-  /* background-image: url(../icons/c-icon-mouse.svg);
-  background-size: contain; */
-  content:'🐀';
-  width: 40px;
-  height: 40px;
-  position: absolute;
+  background-image: url(../icons/c-icon-mouse.svg);
+  background-size: contain;
+}
+
+.c-icon-hummingbird {
+  background-color: red;
+  background-image: url(../icons/c-icon-hummingbird.svg);
+  background-size: contain;
 }
 
 button {
