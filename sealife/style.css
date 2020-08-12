@@ -44,22 +44,22 @@
 }
 
 .c-icon-dolphin {
-  background-color: #C974AF;
+  background-color: #223B69;
   background-image: url(../icons/c-icon-mouse.svg);
 }
 
 .c-icon-penguin {
-  background-color: #FFD147;
+  background-color: #F2C96C;
   background-image: url(../icons/c-icon-hummingbird.svg);
 }
 
 .c-icon-turtle {
-  background-color: #32B454;
+  background-color: #80B880;
   background-image: url(../icons/c-icon-trout.svg);
 }
 
-.c-icon-beaver {
-  background-color: #5FB1E1;
+.c-icon-crab {
+  background-color: #EB6A41;
   background-image: url(../icons/c-icon-beaver.svg);
 }
 
