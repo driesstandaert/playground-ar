@@ -53,13 +53,14 @@
   <a-assets>
     <a-asset-item id="dolphin" src="../assets/sealife/dolphin/scene.gltf"></a-asset-item>
     <a-asset-item id="penguin" src="../assets/sealife/penguin/scene.gltf"></a-asset-item>
+    <a-asset-item id="mouse" src="../assets/animals/mouse/scene.gltf"></a-asset-item>
   </a-assets>
 
     <a-entity 
       clickhandler
       id="dolphin"
       name="dolphin"
-      scale="0.1 0.1 0.1"
+      scale="0.3 0.3 0.3"
       rotation="0 180 0"
       gps-entity-place="latitude: 51.622098; longitude: -0.177871;"
       gltf-model="#dolphin"
@@ -70,10 +71,21 @@
       clickhandler
       id="penguin"
       name="penguin"
-      scale="0.4 0.4 0.4"
+      scale="0.3 0.3 0.3"
+      rotation="0 0 0"
+      gps-entity-place="latitude: 51.622116; longitude: -0.178032;"
+      gltf-model="#penguin"
+      animation-mixer="">
+    </a-entity>
+
+    <a-entity 
+      clickhandler
+      id="mouse"
+      name="mouse"
+      scale="0.01 0.01 0.01"
       rotation="0 0 0"
       gps-entity-place="latitude: 51.6220631; longitude: -0.1779587;"
-      gltf-model="#penguin"
+      gltf-model="#mouse"
       animation-mixer="">
     </a-entity>
 
