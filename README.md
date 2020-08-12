@@ -1,4 +1,4 @@
-# beaver-ar
+# playground-ar
 
 Exploration using https://aframe.io/ and https://github.com/AR-js-org/AR.js/
 
