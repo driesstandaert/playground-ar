@@ -44,27 +44,24 @@
 }
 
 .c-icon-dolphin {
-  background-color: #223B69;
-  background-image: url(../icons/c-icon-mouse.svg);
+  background-color: #2E52FC;
+  background-image: url(../icons/c-icon-dolphin.svg);
 }
 
 .c-icon-penguin {
-  background-color: #F2C96C;
-  background-image: url(../icons/c-icon-hummingbird.svg);
+  background-color: #FF8B00;
+  background-image: url(../icons/c-icon-penguin.svg);
 }
 
 .c-icon-turtle {
-  background-color: #80B880;
-  background-image: url(../icons/c-icon-trout.svg);
+  background-color: #32B454;
+  background-image: url(../icons/c-icon-turtle.svg);
 }
 
-.c-icon-crab {
+.c-icon-seal {
   background-color: #EB6A41;
-  background-image: url(../icons/c-icon-beaver.svg);
+  background-image: url(../icons/c-icon-seal.svg);
 }
-
-
-
 
 
 button {
