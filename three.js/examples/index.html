@@ -111,9 +111,15 @@
 	//          Create a ArMarkerControls
 	////////////////////////////////////////////////////////////////////////////////
 
-	var markerGroup = new THREE.Group
-	scene.add(markerGroup)
-	var markerControls = new THREEx.ArMarkerControls(arToolkitContext, markerGroup, {
+	// var markerGroup = new THREE.Group
+	// scene.add(markerGroup)
+	// var markerControls = new THREEx.ArMarkerControls(arToolkitContext, markerGroup, {
+	// 	type : 'pattern',
+	// 	patternUrl : THREEx.ArToolkitContext.baseURL + '../../data/data/patt.hiro',
+	// 	changeMatrixMode: 'cameraTransformMatrix'
+	// })
+
+	var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
 		type : 'pattern',
 		patternUrl : THREEx.ArToolkitContext.baseURL + '../../data/data/patt.hiro',
 		changeMatrixMode: 'cameraTransformMatrix'
