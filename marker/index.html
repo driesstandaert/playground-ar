@@ -23,11 +23,20 @@
           embedded 
           arjs='debugUIEnabled: true;'
         >
-        <a-marker preset="hiro">
+        <!-- <a-marker preset="hiro">
             <a-entity light="type: ambient; color: #BBB"></a-entity>
             <a-entity light="type:directional; castShadow:true;" position="0 1 0"></a-entity>
+            <a-entity
+            position="0 0 0"
+            rotation="0 0 0"
+            scale="1 1 1"
+            gltf-model="../assets/animals/trout/scene.gltf"
+            shadow="receive: true"
+            animation-mixer
+            ></a-entity>
+        </a-marker> -->
 
-            <!-- Marker on a flat surface -->
+        <a-marker preset="hiro">
             <a-entity
             position="0 0 0"
             rotation="0 0 0"
@@ -37,18 +46,8 @@
             animation-mixer
             ></a-entity>
 
-            <a-plane color="#CCC" height="20" width="20" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
+            <a-plane rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
 
-
-            <!-- Marker against the wall -->
-            <!-- <a-entity
-            position="0 0 1"
-            rotation="270 0 0"
-            scale="1 1 1"
-            gltf-model="../assets/animals/trout/scene.gltf"
-            shadow="receive: false"
-            animation-mixer
-            ></a-entity> -->
         </a-marker>
 
 
