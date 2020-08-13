@@ -91,18 +91,19 @@
 	////////////////////////////////////////////////////////////////////////////////
 
 	// create atToolkitContext
-	var arToolkitContext = new THREEx.ArToolkitContext(artoolkitProfile.contextParameters)
-	// initialize it
-	arToolkitContext.init(function onCompleted(){
-		// copy projection matrix to camera
-		camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
+	var arToolkitContext = new THREEx.ArToolkitContext({
+			detectionMode: 'mono',
+			canvasWidth: 480,
+			canvasHeight: 640,
+	}, {
+			sourceWidth: 480,
+			sourceHeight: 640,
 	})
 
-	// update artoolkit on every frame
-	onRenderFcts.push(function(){
-		if( arToolkitSource.ready === false )	return
-
-		arToolkitContext.update( arToolkitSource.domElement )
+	// initialize it
+	arToolkitContext.init(function onCompleted(){
+			// copy projection matrix to camera
+			camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
 	})
 
 
