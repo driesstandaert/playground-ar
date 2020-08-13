@@ -8,6 +8,7 @@
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
     <script type="text/javascript">
+        // Create shadow on transparent <a-plane>
         AFRAME.registerComponent('shadow-material', {
           init() {
               this.material = new THREE.ShadowMaterial();
@@ -15,7 +16,7 @@
               this.material.opacity = 0.3;
           }
         });
-      </script>
+    </script>
 
     <body style="margin : 0px; overflow: hidden;">
         <a-scene 
@@ -41,7 +42,7 @@
             position="0 0 0"
             rotation="0 0 0"
             scale="1 1 1"
-            gltf-model="../assets/animals/trout/scene.gltf"
+            gltf-model="../assets/animals/mouse/scene.gltf"
             shadow="receive: true"
             animation-mixer
             ></a-entity>
