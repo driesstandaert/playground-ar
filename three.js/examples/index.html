@@ -137,7 +137,7 @@
         var threeGLTFLoader = new THREE.GLTFLoader();
         var model;
 
-        threeGLTFLoader.load("./resources/Flamingo.glb", function (gltf) {
+        threeGLTFLoader.load("../assets/Flamingo.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.name = 'Flamingo';
 
@@ -150,9 +150,9 @@
             root.matrixAutoUpdate = false;
             root.add(model);
 
-            model.position.z = -200;
-            model.position.x = 100;
-            model.position.y = 100;
+            model.position.z = 0;
+            model.position.x = 0;
+            model.position.y = 0;
 
 
             //////////////////////////////////////////////////////////////////////////////////

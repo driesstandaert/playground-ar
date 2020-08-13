@@ -152,12 +152,11 @@
         ////////////////////////////////////////////////////////////////////////////////
 
         // init controls for camera
-        var markerGroup = new THREE.Group
-	scene.add(markerGroup)
-	var markerControls = new THREEx.ArMarkerControls(arToolkitContext, markerGroup, {
-		type : 'pattern',
-		patternUrl : THREEx.ArToolkitContext.baseURL + '../../data/data/patt.hiro',
-	})
+        var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
+            type : 'nft',
+            descriptorsUrl : 'data/dataNFT/pinball',
+            changeMatrixMode: 'cameraTransformMatrix'
+        })
 
         scene.visible = false
 
