@@ -36,6 +36,8 @@
           renderer="antialias: true; logarithmicDepthBuffer: true; colorManagement: true; sortObjects: true;"
           loading-screen="dotsColor: red; backgroundColor: black"
         >
+
+        <!-- Trout -->
         <!-- <a-marker preset="hiro">
             <a-entity light="type: ambient; color: #BBB"></a-entity>
             <a-entity light="type:directional; castShadow:true;" position="0 1 0"></a-entity>
@@ -51,9 +53,11 @@
 
         <a-assets>
             <a-asset-item id="crocodile" src="../assets/animals/crocodile/scene.gltf"></a-asset-item>
+            <a-asset-item id="bridge" src="../assets/bridge/scene.gltf"></a-asset-item>
         </a-assets>
 
-        <a-marker preset="hiro">
+        <!-- Crododile -->
+        <!-- <a-marker preset="hiro">
             <a-box id='loadingEl' color="red" depth="0.1" height="0.1" width="0.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" ></a-box>
             <a-entity
             position="0 1 0"
@@ -63,39 +67,25 @@
             shadow="receive: true"
             animation-mixer
             foo
-            ></a-entity>
+            >
+            </a-entity>
+            <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
+        </a-marker> -->
 
 
-            <!-- CURSOR ENTITY -->
-<a-entity position="0 0 0">
-    <a-entity
-      id="camera"
-      camera
-      look-controls
-      rotation="0 0 0"
-      wasd-controls
-    >
-      <!-- MAIN CURSOR -->
-      <a-entity
-        cursor="fuse: true; maxDistance: 500; timeout: 3000;"
-        id="cursor-main"
-        position="0 0 0"
-        geometry="primitive: ring; radiusOuter: 0.06; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;"
-        material="color: #439DC2;"
-      >
-        <a-animation begin="cursor-fusing" attribute="geometry.thetaLength" fill="forwards" from="360" to="0" easing="ease-in"></a-animation>
-        <a-animation begin="mouseleave" attribute="geometry.thetaLength" fill="backwards" from="0" to="360" dur="0"></a-animation>
-      </a-entity>
-      <a-entity
-        id="cursor-loader"
-        position="0 0 0.0001"
-        geometry="primitive: ring; radiusOuter: 0.06; radiusInner: 0.03;"
-        material="color: #2ADD2A;"
-      >
-      </a-entity>
-    </a-entity>
-  </a-entity>
-
+        <!-- bridge -->
+        <a-marker preset="hiro">
+            <a-box id='loadingEl' color="red" depth="0.1" height="0.1" width="0.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" ></a-box>
+            <a-entity
+            position="0 1 0"
+            rotation="0 45 0"
+            scale="0.5 0.5 0.5"
+            gltf-model="#bridge"
+            shadow="receive: true"
+            animation-mixer
+            foo
+            >
+            </a-entity>
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
         </a-marker>
 
