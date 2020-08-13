@@ -25,7 +25,7 @@
                 })
             }
         })
-        console.log('Test 4')
+        console.log('Test 5')
 
         AFRAME.registerComponent('log', {
             schema: {type: 'string'},
@@ -52,27 +52,32 @@
           log="Hello, Scene!"
         >
 
+        <a-assets>
+            <a-asset-item id="trout" src="../assets/animals/trout/scene.gltf"></a-asset-item>
+            <!-- <a-asset-item id="crocodile" src="../assets/animals/crocodile/scene.gltf"></a-asset-item> -->
+            <!-- <a-asset-item id="bridge" src="../assets/bridge/scene.gltf"></a-asset-item> -->
+        </a-assets>
+
         <!-- Trout -->
-        <!-- <a-marker preset="hiro">
-            <a-entity light="type: ambient; color: #BBB"></a-entity>
-            <a-entity light="type:directional; castShadow:true;" position="0 1 0"></a-entity>
+        <a-marker type='pattern' url='pattern-beaver.patt'>
+            <a-box id='loadingEl' color="red" depth="0.1" height="0.1" width="0.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" ></a-box>
             <a-entity
             position="0 0 0"
             rotation="0 0 0"
             scale="1 1 1"
-            gltf-model="../assets/animals/trout/scene.gltf"
+            gltf-model="#trout"
             shadow="receive: true"
             animation-mixer
-            ></a-entity>
-        </a-marker> -->
+            foo
+            >
+            </a-entity>
+            <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
+        </a-marker>
 
-        <a-assets>
-            <a-asset-item id="crocodile" src="../assets/animals/crocodile/scene.gltf"></a-asset-item>
-            <a-asset-item id="bridge" src="../assets/bridge/scene.gltf"></a-asset-item>
-        </a-assets>
+       
 
         <!-- Crododile -->
-        <a-marker type='pattern' url='pattern-beaver.patt'>
+        <!-- <a-marker type='pattern' url='pattern-beaver.patt'>
             <a-box id='loadingEl' color="red" depth="0.1" height="0.1" width="0.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" ></a-box>
             <a-entity
             position="0 1 0"
@@ -85,7 +90,7 @@
             >
             </a-entity>
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
-        </a-marker>
+        </a-marker> -->
 
 
         <!-- bridge -->
