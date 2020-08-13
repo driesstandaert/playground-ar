@@ -33,7 +33,7 @@
 	});
 
 	var mixers = [];
-	
+
 	renderer.setClearColor(new THREE.Color('lightgrey'), 0)
 	// renderer.setPixelRatio( 2 );
 	renderer.setSize( window.innerWidth, window.innerHeight );
@@ -55,6 +55,9 @@
 	// Create a camera
 	var camera = new THREE.Camera();
 	scene.add(camera);
+
+	var root = new THREE.Object3D();
+        scene.add(root);
 
 	////////////////////////////////////////////////////////////////////////////////
 	//          handle arToolkitSource
@@ -113,6 +116,9 @@
 		type : 'pattern',
 		patternUrl : THREEx.ArToolkitContext.baseURL + './data/data/patt.hiro',
 	})
+
+	var root = new THREE.Object3D();
+      scene.add(root);
 
 
 	// // build a smoothedControls
