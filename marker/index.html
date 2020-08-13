@@ -16,6 +16,15 @@
               this.material.opacity = 0.3;
           }
         });
+
+        // 
+        AFRAME.registerComponent('foo', {
+            init: function() {
+                this.el.addEventListener('model-loaded', e => {
+                    document.querySelector("#loadingEl").remove()
+                })
+            }
+        })
     </script>
 
     <body style="margin : 0px; overflow: hidden;">
@@ -42,6 +51,7 @@
         </a-assets>
 
         <a-marker preset="hiro">
+            <a-box color="tomato" depth="2" height="4" width="0.5" id='loadingEl'></a-box>
             <a-entity
             position="0 1 0"
             rotation="0 45 0"
@@ -49,6 +59,7 @@
             gltf-model="#crocodile"
             shadow="receive: true"
             animation-mixer
+            foo
             ></a-entity>
 
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
