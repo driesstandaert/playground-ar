@@ -15,26 +15,30 @@
         >
         <a-marker preset="hiro">
 
+            <a-entity light="type:directional; castShadow:true;" position="-1 -1 -1"></a-entity>
+
             <!-- Marker on a flat surface -->
-            <!-- <a-entity
-            position="0 0 1"
-            rotation="270 0 0"
-            scale="0.08 0.08 0.08"
-            gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-            ></a-entity> -->
+            <a-entity
+            position="0 0 0"
+            rotation="0 0 0"
+            scale="1 1 1"
+            gltf-model="../assets/animals/trout/scene.gltf"
+            shadow="receive: false"
+            animation-mixer
+            ></a-entity>
 
 
-            <a-entity light="type:directional; castShadow:true;" position="1 1 1"></a-entity>
+            
 
             <!-- Marker against the wall -->
-            <a-entity
+            <!-- <a-entity
             position="0 0 1"
             rotation="270 0 0"
             scale="1 1 1"
             gltf-model="../assets/animals/trout/scene.gltf"
-            shadow="receive: true"
+            shadow="receive: false"
             animation-mixer
-            ></a-entity>
+            ></a-entity> -->
         </a-marker>
 
 
