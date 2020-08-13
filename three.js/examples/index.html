@@ -119,7 +119,14 @@
 	// 	smoothedControls.update(markerGroup)
 	// })
 
-	threeGLTFLoader.load("./resources/Flamingo.glb", function (gltf) {
+	//////////////////////////////////////////////////////////////////////////////////
+        //		add an object in the scene
+        //////////////////////////////////////////////////////////////////////////////////
+
+        var threeGLTFLoader = new THREE.GLTFLoader();
+        var model;
+
+        threeGLTFLoader.load("./resources/Flamingo.glb", function (gltf) {
             model = gltf.scene.children[0];
             model.name = 'Flamingo';
 
@@ -163,6 +170,6 @@
             };
 
             requestAnimationFrame(animate);
-				}
+        }
 );
 </script></body>
