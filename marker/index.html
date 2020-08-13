@@ -25,7 +25,7 @@
                 })
             }
         })
-        console.log('Test 2')
+        console.log('Test 3')
 
         AFRAME.registerComponent('log', {
             schema: {type: 'string'},
@@ -35,9 +35,12 @@
             }
         });
 
-        document.querySelector('#bridgke').addEventListener('model-loaded', function () {
-            console.log('Upla');
-        });
+        // document.querySelector('#bridgke').addEventListener('model-loaded', function () {
+        //     console.log('Upla');
+        // });
+
+        console.log(document.querySelector('a-assets').fileLoader);
+
     </script>
 
     <body style="margin : 0px; overflow: hidden;">
