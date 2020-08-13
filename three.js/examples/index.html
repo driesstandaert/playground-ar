@@ -116,7 +116,10 @@
 	var markerControls = new THREEx.ArMarkerControls(arToolkitContext, markerGroup, {
 		type : 'pattern',
 		patternUrl : THREEx.ArToolkitContext.baseURL + '../../data/data/patt.hiro',
+		changeMatrixMode: 'cameraTransformMatrix'
 	})
+
+	scene.visible = false
 
 	var root = new THREE.Object3D();
       scene.add(root);
