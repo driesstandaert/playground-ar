@@ -125,21 +125,59 @@ function initialize()
 	function onProgress(xhr) { console.log( (xhr.loaded / xhr.total * 100) + '% loaded' ); }
 	function onError(xhr) { console.log( 'An error happened' ); }
 	
-	new THREE.MTLLoader()
-		.setPath( 'models/' )
-		.load( 'fish-2.mtl', function ( materials ) {
-			materials.preload();
-			new THREE.OBJLoader()
-				.setMaterials( materials )
-				.setPath( 'models/' )
-				.load( 'fish-2.obj', function ( group ) {
-					mesh0 = group.children[0];
-					mesh0.material.side = THREE.DoubleSide;
-					mesh0.position.y = 0.25;
-					mesh0.scale.set(0.25,0.25,0.25);
-					markerRoot1.add(mesh0);
-				}, onProgress, onError );
-		});
+	// new THREE.MTLLoader()
+	// 	.setPath( 'models/' )
+	// 	.load( 'fish-2.mtl', function ( materials ) {
+	// 		materials.preload();
+	// 		new THREE.OBJLoader()
+	// 			.setMaterials( materials )
+	// 			.setPath( 'models/' )
+	// 			.load( 'fish-2.obj', function ( group ) {
+	// 				mesh0 = group.children[0];
+	// 				mesh0.material.side = THREE.DoubleSide;
+	// 				mesh0.position.y = 0.25;
+	// 				mesh0.scale.set(0.25,0.25,0.25);
+	// 				markerRoot1.add(mesh0);
+	// 			}, onProgress, onError );
+	// 	});
+
+	// Instantiate a loader
+var loader = new GLTFLoader();
+
+// Optional: Provide a DRACOLoader instance to decode compressed mesh data
+// var dracoLoader = new DRACOLoader();
+// dracoLoader.setDecoderPath( '/examples/js/libs/draco/' );
+// loader.setDRACOLoader( dracoLoader );
+
+// Load a glTF resource
+loader.load(
+	// resource URL
+	'../assets/animals/trout.gltf',
+	// called when the resource is loaded
+	function ( gltf ) {
+
+		scene.add( gltf.scene );
+
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
 }
 
 
