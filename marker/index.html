@@ -25,7 +25,15 @@
                 })
             }
         })
-        console.log('Test 4')
+        console.log('Test 5')
+
+        AFRAME.registerComponent('log', {
+            schema: {type: 'string'},
+            init: function () {
+                var stringToLog = this.data;
+                console.log(stringToLog);
+            }
+        });
     </script>
 
     <body style="margin : 0px; overflow: hidden;">
@@ -35,6 +43,7 @@
           arjs='debugUIEnabled: false;'
           renderer="antialias: true; logarithmicDepthBuffer: true; colorManagement: true; sortObjects: true;"
           loading-screen="dotsColor: red; backgroundColor: black"
+          log="Hello, Scene!"
         >
 
         <!-- Trout -->
@@ -75,7 +84,7 @@
 
         <!-- bridge -->
         <a-marker preset="hiro">
-            <a-box id='loadingEl' color="red" depth="0.1" height="0.1" width="0.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" ></a-box>
+            <a-box id='loadingEl' color="red" depth="0.1" height="0.1" width="0.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" log="Hello, box!"></a-box>
             <a-entity
             position="0 1 0"
             rotation="0 45 0"
@@ -84,6 +93,7 @@
             shadow="receive: true"
             animation-mixer
             foo
+            log="Hello, bridge!"
             >
             </a-entity>
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
