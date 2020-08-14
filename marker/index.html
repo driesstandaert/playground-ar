@@ -52,7 +52,11 @@
             });
         }});
 
-        console.log('Test 5')
+        document.querySelector('button[data-action="change"]').addEventListener('click', function () {
+            console.log('click');
+        });
+
+        console.log('Test 6')
 
     </script>
 
@@ -149,6 +153,9 @@
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
         </a-marker> -->
 
+        <div class="is-centered">
+            <button data-action="change"></button>
+        </div>
 
         <a-entity camera></a-entity>
 
