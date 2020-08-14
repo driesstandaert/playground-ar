@@ -53,10 +53,12 @@
                 });
             }});
 
+            window.onload=function(){
+                document.querySelector('.js-button').addEventListener('click', function () {
+                    console.log('click');
+                });
+            }
             
-            document.querySelector('.js-button').addEventListener('click', function () {
-                console.log('click');
-            });
 
             console.log('Test 6')
 
