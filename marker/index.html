@@ -61,10 +61,13 @@
                     console.log('click');
 
                     if (entity.hasAttribute('animation')) {
-                        entity.emit('rotate');
+                        // entity.emit('rotate');
+                        console.log('has animation');
+                        
                     } else {
                         entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
                         entity.emit('rotate');
+                        console.log('add animation and rotate');
                     }
                 });
 
@@ -78,12 +81,12 @@
                     this.removeAttribute('animation');
                     // entity.pause();
                     // entity.setAttribute('animation', '');
-                    console.log('you can read me'); 
+                    console.log('remove animation'); 
                 });
             }
             
 
-            console.log('Test ')
+            console.log('Test 1')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
@@ -125,7 +128,6 @@
                 animation-mixer
                 box-loader
             >
-            <a-animation attribute="position" from="-1 1 -4" to="-2 1 -4"></a-animation>
             </a-entity>
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
         </a-marker>
