@@ -59,8 +59,13 @@
 
                 document.querySelector('.js-button').addEventListener('click', function () {
                     console.log('click');
-                    entity.emit('rotate');
-                    //entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;')
+
+                    if (entity.hasAttribute('animation')) {
+                        entity.emit('rotate');
+                    } else {
+                        entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;')
+                        entity.emit('rotate');
+                    }
                 });
 
 
@@ -70,16 +75,15 @@
                 // });
 
                 entity.addEventListener('animationcomplete', function(){ 
-                    // this.removeAttribute('animation', '');
+                    this.removeAttribute('animation');
                     // entity.pause();
-                    entity.setAttribute('animation', '');
-                    entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;startEvents: rotate;')
+                    // entity.setAttribute('animation', '');
                     console.log('you can read me'); 
                 });
             }
             
 
-            console.log('Test 6')
+            console.log('Test 7')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
