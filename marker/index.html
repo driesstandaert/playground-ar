@@ -58,9 +58,15 @@
                     console.log('click');
                     const el = document.querySelector('a-entity#trout');
                     el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;');
-                    setInterval(function(){ 
+                    // setInterval(function(){ 
+                    //     el.removeAttribute('animation');
+                    // }, 2000);
+
+                    el.addEventListener('animationend', function () {
                         el.removeAttribute('animation');
-                    }, 2000);
+                        console.log('remove animation');
+                        
+                    });
                 });
             }
             
