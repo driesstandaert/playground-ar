@@ -1,64 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <!-- we import arjs version without NFT but with marker + location based support -->
+        <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
 
-    <!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script> -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script> -->
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
-    <script type="text/javascript">
-        // Create shadow on transparent <a-plane>
-        AFRAME.registerComponent('shadow-material', {
-          init() {
-              this.material = new THREE.ShadowMaterial();
-              this.el.getOrCreateObject3D('mesh').material = this.material;
-              this.material.opacity = 0.3;
-          }
-        });
-
-        // Show loading box before model is loaded
-        AFRAME.registerComponent('box-loader', {
-            init: function() {
-                this.el.addEventListener('model-loaded', e => {
-                    document.querySelector("#loadingEl").remove()
-                })
+        <script type="text/javascript">
+            // Create shadow on transparent <a-plane>
+            AFRAME.registerComponent('shadow-material', {
+            init() {
+                this.material = new THREE.ShadowMaterial();
+                this.el.getOrCreateObject3D('mesh').material = this.material;
+                this.material.opacity = 0.3;
             }
-        })
-
-        // Console log text if elemeent is loaded
-        AFRAME.registerComponent('log', {
-            schema: {type: 'string'},
-            init: function () {
-                var stringToLog = this.data;
-                console.log(stringToLog);
-            }
-        });
-
-        // OnClick element
-        AFRAME.registerComponent('clickhandler', {
-        init: function() {
-            this.el.addEventListener('click', () => {
-                const modelName = this.el.getAttribute('name');
-                const div = document.querySelector('.js-label');
-                div.innerHTML += `${modelName}`;
-
-                this.el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: true; dur: 10000');
-                
-                console.log(modelName);
-                console.log(this.el.getAttribute('distance'))
-                console.log(this.el.getAttribute('scale'))
             });
-        }});
 
-        document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            console.log('click');
-        });
+            // Show loading box before model is loaded
+            AFRAME.registerComponent('box-loader', {
+                init: function() {
+                    this.el.addEventListener('model-loaded', e => {
+                        document.querySelector("#loadingEl").remove()
+                    })
+                }
+            })
 
-        console.log('Test 6')
+            // Console log text if elemeent is loaded
+            AFRAME.registerComponent('log', {
+                schema: {type: 'string'},
+                init: function () {
+                    var stringToLog = this.data;
+                    console.log(stringToLog);
+                }
+            });
 
-    </script>
+            // OnClick element
+            AFRAME.registerComponent('clickhandler', {
+            init: function() {
+                this.el.addEventListener('click', () => {
+                    const modelName = this.el.getAttribute('name');
+                    const div = document.querySelector('.js-label');
+                    div.innerHTML += `${modelName}`;
+
+                    this.el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: true; dur: 10000');
+                    
+                    console.log(modelName);
+                    console.log(this.el.getAttribute('distance'))
+                    console.log(this.el.getAttribute('scale'))
+                });
+            }});
+
+            const test= document.querySelector('button[data-action="change"]')
+            test.addEventListener('click', function () {
+                console.log('click');
+            });
+
+            console.log('Test 6')
+
+        </script>
+        <link rel="stylesheet" type="text/css" href="./style.css"/>
+    </head>
 
     <body style="margin : 0px; overflow: hidden;">
         <div class="c-label js-label"></div>
@@ -154,7 +158,7 @@
         </a-marker> -->
 
         <a-entity camera></a-entity>
-        
+
         </a-scene>
 
         <div class="is-centered">
