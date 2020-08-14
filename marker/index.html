@@ -63,6 +63,7 @@
                     console.log('click');
 
                     if (entity.hasAttribute('animation')) {
+                        entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
                         entity.emit('rotate');
                         console.log('has animation');
                     } else {
@@ -90,7 +91,7 @@
                     // this.removeAttribute('animation');
                     // entity.setAttribute('animation', '');
 
-                    entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
+                    entity.setAttribute('animation', 'property: rotation; to: 360 0 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
                     
                     // entity.pause();
                     // entity.setAttribute('animation', '');
@@ -99,7 +100,7 @@
             }
             
 
-            console.log('Test 2')
+            console.log('Test 3')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
