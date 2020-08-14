@@ -7,7 +7,7 @@
 
         <!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script> -->
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <!-- <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script> -->
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
         <script type="text/javascript">
             // Create shadow on transparent <a-plane>
@@ -87,11 +87,11 @@
                 // });
 
                 entity.addEventListener('animationcomplete', function(){ 
-                    this.removeAttribute('animation');
+                    // this.removeAttribute('animation');
                     // entity.setAttribute('animation', '');
 
-                    // entity.setAttribute('animation', 'property: rotation; to: 360 0 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
-                    
+                    entity.setAttribute('animation', 'property: rotation; to: 360 0 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
+                    entity.emit('rotate');
                     // entity.pause();
                     // entity.setAttribute('animation', '');
                     console.log('remove animation'); 
@@ -99,7 +99,7 @@
             }
             
 
-            console.log('Test 5')
+            console.log('Test 4')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
@@ -138,6 +138,7 @@
                 scale="1 1 1"
                 gltf-model="#trout"
                 shadow="receive: true"
+                animation-mixer
                 box-loader
             >
             </a-entity>
