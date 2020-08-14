@@ -53,8 +53,6 @@
             //     });
             // }});
 
-
-
             window.onload=function(){
                 var sceneEl = document.querySelector('a-scene');
                 var entity = sceneEl.querySelector('a-entity');
@@ -70,36 +68,17 @@
                         entity.emit('rotate');
                         console.log('add animation and rotate');
                     }
-
-                    // if (entity.getAttribute('animation') == '' || entity.getAttribute('animation') === null ) {
-                    //     entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
-                    //     entity.emit('rotate');
-                    //     console.log('add animation and rotate');
-                    // }else{
-                    //     entity.emit('rotate');
-                    // }
                 });
-
-
-                // document.querySelector('a-entity#trout').addEventListener('animationcomplete', function () {
-                //     entity.setAttribute('animation', '');
-                //     console.log('remove animation');  
-                // });
 
                 entity.addEventListener('animationcomplete', function(){ 
                     this.removeAttribute('animation');
-                    // entity.setAttribute('animation', '');
-                    this.flushToDOM()
-                    // entity.setAttribute('animation', 'property: rotation; to: 360 0 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
-                    // entity.emit('rotate');
-                    // entity.pause();
-                    // entity.setAttribute('animation', '');
+                    this.flushToDOM() // Update the DOM
                     console.log('remove animation'); 
                 });
             }
             
 
-            console.log('Test 6')
+            console.log('Test 7')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
