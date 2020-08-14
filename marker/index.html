@@ -70,7 +70,7 @@
                     //     console.log('add animation and rotate');
                     // }
 
-                    if (entity.getAttribute('animation') == '') {
+                    if (entity.getAttribute('animation') == '' || entity.getAttribute('animation') === null ) {
                         entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
                         entity.emit('rotate');
                         console.log('add animation and rotate');
@@ -96,7 +96,7 @@
             }
             
 
-            console.log('Test 5')
+            console.log('Test 6')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
