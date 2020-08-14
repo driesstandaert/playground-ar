@@ -54,20 +54,24 @@
             }});
 
             window.onload=function(){
+                var sceneEl = document.querySelector('a-scene');
+                var entity = sceneEl.querySelector('a-entity');
+
                 document.querySelector('.js-button').addEventListener('click', function () {
                     console.log('click');
-                    const el = document.querySelector('a-entity#trout');
-                    el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;');
+                    // const el = document.querySelector('a-entity#trout');
+                    // el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;');
                     // setInterval(function(){ 
                     //     el.removeAttribute('animation');
                     // }, 2000);
+                    entity.emit('rotate');
 
-                    el.addEventListener('animationend', function () {
-                        el.removeAttribute('animation');
-                        console.log('remove animation');
-                        
-                    });
+                    
                 });
+                // document.querySelector('a-entity#trout').addEventListener('animationend', function () {
+                //     el.removeAttribute('animation');
+                //     console.log('remove animation');  
+                // });
             }
             
 
@@ -112,6 +116,7 @@
                 shadow="receive: true"
                 animation-mixer
                 box-loader
+                animation="property: rotation; to: 0 360 0; startEvents: rotate"
             >
             </a-entity>
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
