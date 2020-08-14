@@ -38,20 +38,20 @@
             });
 
             // OnClick element
-            AFRAME.registerComponent('clickhandler', {
-            init: function() {
-                this.el.addEventListener('click', () => {
-                    const modelName = this.el.getAttribute('name');
-                    const div = document.querySelector('.js-label');
-                    div.innerHTML += `${modelName}`;
+            // AFRAME.registerComponent('clickhandler', {
+            // init: function() {
+            //     this.el.addEventListener('click', () => {
+            //         const modelName = this.el.getAttribute('name');
+            //         const div = document.querySelector('.js-label');
+            //         div.innerHTML += `${modelName}`;
 
-                    this.el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: true; dur: 10000');
+            //         this.el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: true; dur: 10000');
                     
-                    console.log(modelName);
-                    console.log(this.el.getAttribute('distance'))
-                    console.log(this.el.getAttribute('scale'))
-                });
-            }});
+            //         console.log(modelName);
+            //         console.log(this.el.getAttribute('distance'))
+            //         console.log(this.el.getAttribute('scale'))
+            //     });
+            // }});
 
             window.onload=function(){
                 var sceneEl = document.querySelector('a-scene');
@@ -59,23 +59,18 @@
 
                 document.querySelector('.js-button').addEventListener('click', function () {
                     console.log('click');
-                    // const el = document.querySelector('a-entity#trout');
-                    // el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;');
-                    // setInterval(function(){ 
-                    //     el.removeAttribute('animation');
-                    // }, 2000);
                     entity.emit('rotate');
-
-                    
                 });
-                // document.querySelector('a-entity#trout').addEventListener('animationend', function () {
-                //     el.removeAttribute('animation');
-                //     console.log('remove animation');  
-                // });
+
+
+                document.querySelector('a-entity#trout').addEventListener('animationcomplete', function () {
+                    el.removeAttribute('animation');
+                    console.log('remove animation');  
+                });
             }
             
 
-            console.log('Test 6')
+            console.log('Test 7')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
