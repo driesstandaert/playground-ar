@@ -24,10 +24,15 @@
   right: 0;
 }
 
-button {
+.c-controls {
+  position: fixed;
+  bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+button {
   border: 2px solid white;
   background-color: transparent;
   width: 2em;
