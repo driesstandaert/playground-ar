@@ -53,10 +53,10 @@
                 });
             }});
 
-            // const test= document.querySelector('button[data-action="change"]')
-            // test.addEventListener('click', function () {
-            //     console.log('click');
-            // });
+            
+            document.querySelector('.js-button').addEventListener('click', function () {
+                console.log('click');
+            });
 
             console.log('Test 6')
 
@@ -162,7 +162,7 @@
         </a-scene>
 
         <div class="c-controls">
-            <button data-action="change"></button>
+            <button data-action="change" class="js-button"></button>
         </div>
     </body>
 </html>
