@@ -56,7 +56,11 @@
             window.onload=function(){
                 document.querySelector('.js-button').addEventListener('click', function () {
                     console.log('click');
-                    document.querySelector('a-entity#trout').setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;');
+                    const el = document.querySelector('a-entity#trout');
+                    el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;');
+                    setInterval(function(){ 
+                        el.setAttribute('animation', '');
+                    }, 2000);
                 });
             }
             
