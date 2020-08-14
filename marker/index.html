@@ -69,14 +69,14 @@
                 //     console.log('remove animation');  
                 // });
 
-                entity.addEventListener('animationcomplete', function(e){ 
-                    this.components[e.detail.name].animation.reset(); 
+                entity.addEventListener('animationcomplete', function(){ 
+                    this.removeAttribute('animation', '');
                     console.log('you can read me'); 
                 });
             }
             
 
-            console.log('Test 3')
+            console.log('Test 4')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
