@@ -60,14 +60,22 @@
                 document.querySelector('.js-button').addEventListener('click', function () {
                     console.log('click');
 
-                    if (entity.hasAttribute('animation')) {
-                        // entity.emit('rotate');
-                        console.log('has animation');
+                    // if (entity.hasAttribute('animation')) {
+                    //     // entity.emit('rotate');
+                    //     console.log('has animation');
                         
-                    } else {
+                    // } else {
+                    //     entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
+                    //     entity.emit('rotate');
+                    //     console.log('add animation and rotate');
+                    // }
+
+                    if (entity.getAttribute('animation') == '') {
                         entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
                         entity.emit('rotate');
                         console.log('add animation and rotate');
+                    }else{
+                        entity.emit('rotate');
                     }
                 });
 
@@ -79,7 +87,8 @@
 
                 entity.addEventListener('animationcomplete', function(){ 
                     // this.removeAttribute('animation');
-                    this.getDOMAttribute('animation') = '';
+                    entity.setAttribute('animation', '');
+                    
                     // entity.pause();
                     // entity.setAttribute('animation', '');
                     console.log('remove animation'); 
@@ -87,7 +96,7 @@
             }
             
 
-            console.log('Test 4')
+            console.log('Test 5')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
