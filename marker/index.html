@@ -53,30 +53,31 @@
             //     });
             // }});
 
+
+
             window.onload=function(){
                 var sceneEl = document.querySelector('a-scene');
                 var entity = sceneEl.querySelector('a-entity');
-
+               
                 document.querySelector('.js-button').addEventListener('click', function () {
                     console.log('click');
 
-                    // if (entity.hasAttribute('animation')) {
-                    //     // entity.emit('rotate');
-                    //     console.log('has animation');
-                        
-                    // } else {
-                    //     entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
-                    //     entity.emit('rotate');
-                    //     console.log('add animation and rotate');
-                    // }
-
-                    if (entity.getAttribute('animation') == '' || entity.getAttribute('animation') === null ) {
+                    if (entity.hasAttribute('animation')) {
+                        entity.emit('rotate');
+                        console.log('has animation');
+                    } else {
                         entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
                         entity.emit('rotate');
                         console.log('add animation and rotate');
-                    }else{
-                        entity.emit('rotate');
                     }
+
+                    // if (entity.getAttribute('animation') == '' || entity.getAttribute('animation') === null ) {
+                    //     entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
+                    //     entity.emit('rotate');
+                    //     console.log('add animation and rotate');
+                    // }else{
+                    //     entity.emit('rotate');
+                    // }
                 });
 
 
@@ -87,7 +88,9 @@
 
                 entity.addEventListener('animationcomplete', function(){ 
                     // this.removeAttribute('animation');
-                    entity.setAttribute('animation', '');
+                    // entity.setAttribute('animation', '');
+
+                    entity.setAttribute('animation', 'property: rotation; to: 360 0 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
                     
                     // entity.pause();
                     // entity.setAttribute('animation', '');
@@ -96,7 +99,7 @@
             }
             
 
-            console.log('Test 6')
+            console.log('Test 1')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
