@@ -87,11 +87,11 @@
                 // });
 
                 entity.addEventListener('animationcomplete', function(){ 
-                    // this.removeAttribute('animation');
+                    this.removeAttribute('animation');
                     // entity.setAttribute('animation', '');
-
-                    entity.setAttribute('animation', 'property: rotation; to: 360 0 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
-                    entity.emit('rotate');
+                    this.flushToDOM()
+                    // entity.setAttribute('animation', 'property: rotation; to: 360 0 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;')
+                    // entity.emit('rotate');
                     // entity.pause();
                     // entity.setAttribute('animation', '');
                     console.log('remove animation'); 
@@ -99,7 +99,7 @@
             }
             
 
-            console.log('Test 4')
+            console.log('Test 5')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
@@ -138,6 +138,7 @@
                 scale="1 1 1"
                 gltf-model="#trout"
                 shadow="receive: true"
+                animation="property: rotation; to: 360 0 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;"
                 animation-mixer
                 box-loader
             >
