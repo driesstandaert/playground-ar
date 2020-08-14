@@ -59,7 +59,7 @@
                     const el = document.querySelector('a-entity#trout');
                     el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;');
                     setInterval(function(){ 
-                        el.setAttribute('animation', '');
+                        el.removeAttribute('animation');
                     }, 2000);
                 });
             }
