@@ -59,18 +59,19 @@
 
                 document.querySelector('.js-button').addEventListener('click', function () {
                     console.log('click');
-                    entity.emit('rotate');
+                    // entity.emit('rotate');
+                    entity.setAttribute('animation', 'animation="property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate"')
                 });
 
 
                 document.querySelector('a-entity#trout').addEventListener('animationcomplete', function () {
-                    el.removeAttribute('animation');
+                    entity.removeAttribute('animation');
                     console.log('remove animation');  
                 });
             }
             
 
-            console.log('Test 7')
+            console.log('Test 8')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
@@ -111,7 +112,6 @@
                 shadow="receive: true"
                 animation-mixer
                 box-loader
-                animation="property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate"
             >
             </a-entity>
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
