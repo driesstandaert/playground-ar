@@ -70,13 +70,14 @@
                 // });
 
                 entity.addEventListener('animationcomplete', function(){ 
-                    this.removeAttribute('animation', '');
+                    // this.removeAttribute('animation', '');
+                    entity.pause();
                     console.log('you can read me'); 
                 });
             }
             
 
-            console.log('Test 4')
+            console.log('Test 5')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
@@ -117,7 +118,7 @@
                 shadow="receive: true"
                 animation-mixer
                 box-loader
-                animation="property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 2000; easing:linear; startEvents: rotate;"
             >
             </a-entity>
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
