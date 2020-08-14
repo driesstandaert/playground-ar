@@ -79,6 +79,7 @@
 
                 entity.addEventListener('animationcomplete', function(){ 
                     this.removeAttribute('animation');
+                    this.destroy();
                     // entity.pause();
                     // entity.setAttribute('animation', '');
                     console.log('remove animation'); 
@@ -86,7 +87,7 @@
             }
             
 
-            console.log('Test 2')
+            console.log('Test 1')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
@@ -125,6 +126,7 @@
                 scale="1 1 1"
                 gltf-model="#trout"
                 shadow="receive: true"
+                animation-mixer
                 box-loader
             >
             </a-entity>
