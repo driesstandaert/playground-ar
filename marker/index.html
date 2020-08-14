@@ -17,16 +17,16 @@
           }
         });
 
-        // 
-        AFRAME.registerComponent('foo', {
+        // Show loading box before model is loaded
+        AFRAME.registerComponent('box-loader', {
             init: function() {
                 this.el.addEventListener('model-loaded', e => {
                     document.querySelector("#loadingEl").remove()
                 })
             }
         })
-        console.log('Test 5')
 
+        // Console log text if elemeent is loaded
         AFRAME.registerComponent('log', {
             schema: {type: 'string'},
             init: function () {
@@ -35,14 +35,29 @@
             }
         });
 
-        // document.querySelector('#bridgke').addEventListener('model-loaded', function () {
-        //     console.log('Upla');
-        // });
+        // OnClick element
+        AFRAME.registerComponent('clickhandler', {
+        init: function() {
+            this.el.addEventListener('click', () => {
+                const modelName = this.el.getAttribute('name');
+                const div = document.querySelector('.js-label');
+                div.innerHTML += `${modelName}`;
 
+                this.el.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: true; dur: 10000');
+                
+                console.log(modelName);
+                console.log(this.el.getAttribute('distance'))
+                console.log(this.el.getAttribute('scale'))
+            });
+        }});
+
+        console.log('Test')
 
     </script>
 
     <body style="margin : 0px; overflow: hidden;">
+        <div class="c-label js-label"></div>
+
         <a-scene 
           vr-mode-ui='enabled: false' 
           embedded 
@@ -63,13 +78,16 @@
         <a-marker preset='custom' type='pattern' url='marker-qr.patt'>
             <a-box id='loadingEl' color="red" depth="0.1" height="0.1" width="0.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" ></a-box>
             <a-entity
+            id="trout"
+            name="Trout"
             position="0 0 0"
             rotation="0 180 0"
             scale="1 1 1"
             gltf-model="#trout"
             shadow="receive: true"
             animation-mixer
-            foo
+            box-loader
+            clickhandler
             >
             </a-entity>
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
