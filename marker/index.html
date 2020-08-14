@@ -59,19 +59,24 @@
 
                 document.querySelector('.js-button').addEventListener('click', function () {
                     console.log('click');
-                    // entity.emit('rotate');
-                    entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;')
+                    entity.emit('rotate');
+                    //entity.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear;')
                 });
 
 
-                document.querySelector('a-entity#trout').addEventListener('animationcomplete', function () {
-                    entity.setAttribute('animation', '');
-                    console.log('remove animation');  
+                // document.querySelector('a-entity#trout').addEventListener('animationcomplete', function () {
+                //     entity.setAttribute('animation', '');
+                //     console.log('remove animation');  
+                // });
+
+                entity.addEventListener('animationcomplete', function(e){ 
+                    this.components[e.detail.name].animation.reset(); 
+                    console.log('you can read me'); 
                 });
             }
             
 
-            console.log('Test 2')
+            console.log('Test 3')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
@@ -112,6 +117,7 @@
                 shadow="receive: true"
                 animation-mixer
                 box-loader
+                animation="property: rotation; to: 0 360 0; loop: 1; dur: 2000; easing:linear; startEvents: rotate;"
             >
             </a-entity>
             <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
