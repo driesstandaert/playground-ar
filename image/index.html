@@ -24,7 +24,7 @@
 <!-- rawgithack development URL -->
 <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
 <script>
-  console.log('test');
+  console.log('test 2');
   
 </script>
 
@@ -39,7 +39,7 @@
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
         <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
-        <a-nft
+        <!-- <a-nft
             type='nft' url='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
             <a-entity
@@ -49,7 +49,7 @@
                 rotation="0 90 0"
                 >
             </a-entity>
-        </a-nft>
+        </a-nft> -->
 
         <!-- <a-nft
             type='nft' url='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
@@ -57,8 +57,8 @@
             <a-box color="red" depth="1" height="1" width="1" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" ></a-box>
         </a-nft> -->
 
-        <!-- <a-nft
-            type='nft' url='../image/beaver/beaver-image/beaver'
+        <a-nft
+            type='nft' url='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
             <a-entity
                 gltf-model='../assets/animals/trout/scene.gltf'
@@ -66,7 +66,7 @@
                 position="0 0 0"
                 >
             </a-entity>
-        </a-nft> -->
+        </a-nft>
 		<a-entity camera></a-entity>
     </a-scene>
 </body>
