@@ -30,6 +30,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  left: 0;
+  right: 0;
 }
 
 button {
