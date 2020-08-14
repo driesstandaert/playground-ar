@@ -78,8 +78,8 @@
                 // });
 
                 entity.addEventListener('animationcomplete', function(){ 
-                    this.removeAttribute('animation');
-                    this.destroy();
+                    // this.removeAttribute('animation');
+                    this.getDOMAttribute('animation') = '';
                     // entity.pause();
                     // entity.setAttribute('animation', '');
                     console.log('remove animation'); 
@@ -87,7 +87,7 @@
             }
             
 
-            console.log('Test 3')
+            console.log('Test 4')
 
         </script>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
