@@ -863,18 +863,18 @@
     "images" : [
         {
             "mimeType" : "image/png",
-            "name" : "briques us\u00e9es_height",
-            "uri" : "briques%20us%C3%A9es_height.png"
+            "name" : "briques_usces_height",
+            "uri" : "briques_usces_height.png"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "briques us\u00e9es",
-            "uri" : "briques%20us%C3%A9es.jpg"
+            "name" : "briques_usces",
+            "uri" : "briques_usces.jpg"
         },
         {
             "mimeType" : "image/png",
-            "name" : "briques us\u00e9es_roughness",
-            "uri" : "briques%20us%C3%A9es_roughness.png"
+            "name" : "briques_usces_roughness",
+            "uri" : "briques_usces_roughness.png"
         },
         {
             "mimeType" : "image/png",
