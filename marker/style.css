@@ -67,8 +67,8 @@ button {
   transform-origin: 50% 65%;
 }
 
-svg path {
-  stroke-dasharray: 355 355;
+svg .c-loader__path {
+  stroke-dasharray: 355 175;
   animation: dash 2.5s ease infinite;
 }
 
