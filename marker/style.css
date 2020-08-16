@@ -68,13 +68,19 @@ button {
 }
 
 svg path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 2s ease-out infinite;
+  stroke-dasharray: 355;
+  stroke-dashoffset: 355;
+  animation: dash 2.5s ease infinite;
 }
 
 @keyframes dash {
-  to {
+  0% {
+    stroke-dashoffset: 355;
+  }
+  50% {
     stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 355;
   }
 }
