@@ -69,11 +69,11 @@ button {
 
 svg path {
   stroke-dasharray: 10;
-  animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+  animation: dash 2s linear infinite;
 }
 
 @keyframes dash {
   to {
-    stroke-dashoffset: 100;
+    stroke-dashoffset: 1000;
   }
 }
