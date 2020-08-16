@@ -69,12 +69,12 @@ button {
 
 svg path {
   stroke-dasharray: 1000;
-  stroke-dashoffset: 0;
+  stroke-dashoffset: 1000;
   animation: dash 2s ease-out infinite;
 }
 
 @keyframes dash {
   to {
-    stroke-dashoffset: 1000;
+    stroke-dashoffset: 0;
   }
 }
