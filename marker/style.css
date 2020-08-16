@@ -65,7 +65,6 @@ button {
 
 .c-loader__svg {
   transform-origin: 50% 65%;
-  width: 40px;
 }
 
 svg path {
