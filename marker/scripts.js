@@ -23,6 +23,7 @@ AFRAME.registerComponent('shadow-material', {
       init: function() {
           this.el.addEventListener('model-loaded', e => {
               document.querySelector(".js-loader").style.display = "none";
+              console.log('Model loaded!');
           })
       }
   })
