@@ -22,7 +22,7 @@ AFRAME.registerComponent('shadow-material', {
   AFRAME.registerComponent('box-loader', {
       init: function() {
           this.el.addEventListener('model-loaded', e => {
-              document.querySelector(".arjs-loader").style.display = "none";
+              document.querySelector(".js-loader").style.display = "none";
           })
       }
   })
