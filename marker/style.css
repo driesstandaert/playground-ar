@@ -63,11 +63,12 @@ button {
   color: white;
 } */
 
-svg {
+.c-loader__svg {
   transform-origin: 50% 65%;
+  width: 40px;
 }
 
-svg polygon {
+svg path {
   stroke-dasharray: 17;
   animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
 }
