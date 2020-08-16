@@ -68,7 +68,7 @@ button {
 }
 
 svg path {
-  stroke-dasharray: 10;
+  stroke-dasharray: 3 1000;
   animation: dash 3s linear infinite;
 }
 
