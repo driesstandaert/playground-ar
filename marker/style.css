@@ -57,23 +57,42 @@ button {
   align-items: center;
 }
 
-/* .c-loader div {
-  text-align: center;
-  font-size: 1.25em;
-  color: white;
-} */
-
-.c-loader__svg {
-  transform-origin: 50% 65%;
-}
-
-svg .c-loader__path {
-  stroke-dasharray: 355 175;
-  animation: dash 2.5s ease infinite;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 355;
+  .c-loader__svg {
+    transform-origin: 50% 65%;
   }
-}
+
+    .c-loader__path {
+      stroke-dasharray: 176;
+      stroke-dashoffset: 176;
+      animation: dash 2s linear infinite;
+    }
+
+    @keyframes dash {
+      0% {
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dashoffset: 176;
+      }
+      100% {
+        stroke-dashoffset: 355;
+      }
+    }
+
+  .c-loader__instructions {
+    font-family: 'Alata', sans-serif;
+    font-size: .875rem;
+    text-align: center;
+    color: rgba(255, 255, 255, .7);
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 20px;
+    left: 10%;
+  }
+
+
+
+
+
