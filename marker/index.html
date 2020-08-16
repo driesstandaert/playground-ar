@@ -21,10 +21,18 @@
             });
 
             // Show loading box before model is loaded
+            // AFRAME.registerComponent('box-loader', {
+            //     init: function() {
+            //         this.el.addEventListener('model-loaded', e => {
+            //             document.querySelector("#loadingEl").remove()
+            //         })
+            //     }
+            // })
+
             AFRAME.registerComponent('box-loader', {
                 init: function() {
                     this.el.addEventListener('model-loaded', e => {
-                        document.querySelector("#loadingEl").remove()
+                        document.querySelector(".arjs-loader").style.display = "none";
                     })
                 }
             })
@@ -77,6 +85,8 @@
                     console.log('remove animation'); 
                 });
             }
+
+            
             
 
             console.log('Test 7')
@@ -86,6 +96,9 @@
     </head>
 
     <body style="margin : 0px; overflow: hidden;">
+        <div class="arjs-loader">
+            <div>Loading, please wait...</div>
+        </div>
         <div class="c-label js-label"></div>
 
         <a-scene 
@@ -104,7 +117,6 @@
             <a-asset-item id="bridge" src="../assets/bridge/scene.gltf"></a-asset-item>
             <!-- <a-asset-item id="crocodile" src="../assets/animals/crocodile/scene.gltf"></a-asset-item> -->
             <!-- <a-asset-item id="beaver" src="../assets/animals/beaver/scene.glb"></a-asset-item> -->
-            <!-- <a-asset-item id="bridge" src="../assets/bridge/scene.gltf"></a-asset-item> -->
         </a-assets>
 
          <!-- bridge -->
@@ -179,25 +191,6 @@
             >
             </a-entity>
             <a-plane height="200" width="200" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
-        </a-marker> -->
-
-
-        <!-- bridge -->
-        <!-- <a-marker type='pattern' url='pattern-beaver.patt'>
-            <a-box id='loadingEl' color="red" depth="0.1" height="0.1" width="0.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" log="Hello, box!"></a-box>
-            <a-entity
-            position="-1.5 0 0"
-            rotation="0 90 0"
-            scale="0.001 0.001 0.001"
-            gltf-model="#bridge"
-            shadow="receive: true"
-            animation-mixer
-            foo
-            log="Hello, bridge!"
-            id="bridgke"
-            >
-            </a-entity>
-            <a-plane height="100" width="100" rotation="-90 0 0" shadow="receive: true" shadow-material></a-plane>
         </a-marker> -->
 
         <a-entity camera></a-entity>
