@@ -19,13 +19,13 @@ AFRAME.registerComponent('shadow-material', {
   // })
 
   // Show loading screen before model is loaded
-  AFRAME.registerComponent('box-loader', {
-      init: function() {
-          this.el.addEventListener('model-loaded', e => {
-              document.querySelector(".js-loader").style.display = "none";
-          })
-      }
-  })
+  // AFRAME.registerComponent('box-loader', {
+  //     init: function() {
+  //         this.el.addEventListener('model-loaded', e => {
+  //             document.querySelector(".js-loader").style.display = "none";
+  //         })
+  //     }
+  // })
 
   // Console log text if element is loaded
   AFRAME.registerComponent('log', {
