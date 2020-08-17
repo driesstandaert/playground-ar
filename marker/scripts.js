@@ -23,20 +23,19 @@ AFRAME.registerComponent('box-loader', {
     init: function () {
         this.el.addEventListener('model-loaded', e => {
             console.log('Model loaded!');
+            var m = document.querySelector("a-marker")
             setInterval(
                 function () {
                     document.querySelector(".js-loader").style.display = "none";
                     document.querySelector(".js-label").style.display = "block";
-                    var m = document.querySelector("a-marker")
                     m.addEventListener("markerFound", (e)=>{
-                        setInterval(
-                            function () {
-                                document.querySelector(".js-button").style.display = "block";
-                                document.querySelector(".js-label").style.display = "none";
-                            }, 3000
-                        );
+                        document.querySelector(".js-label").style.display = "none";
+                        document.querySelector(".js-button").style.display = "block";
                     })
-                    
+                    m.addEventListener("markerLost", (e)=>{
+                        document.querySelector(".js-label").style.display = "block";
+                        document.querySelector(".js-button").style.display = "none";
+                    })
                 }, 3000
             );
         })
