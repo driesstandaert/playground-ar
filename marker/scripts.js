@@ -19,31 +19,31 @@ AFRAME.registerComponent('shadow-material', {
 // })
 
 // Show loading screen before model is loaded
-// AFRAME.registerComponent('box-loader', {
-//     init: function () {
-//         this.el.addEventListener('model-loaded', e => {
-//             console.log('Model loaded!');
-//             var m = document.querySelector("a-marker")
-//             setTimeout(
-//                 function () {
-//                     document.querySelector(".js-loader").classList.remove('is-visible');
-//                     m.addEventListener("markerFound", (e)=>{
-//                         document.querySelector(".js-label").classList.remove('is-visible')
-//                         document.querySelector(".js-button").classList.add('is-visible')
-//                     })
-//                     m.addEventListener("markerLost", (e)=>{
-//                         setTimeout(
-//                             function () {
-//                                 document.querySelector(".js-label").classList.add('is-visible')
-//                                 document.querySelector(".js-button").classList.remove('is-visible')
-//                             }
-//                         ), 500
-//                     })
-//                 }, 1000
-//             );
-//         })
-//     }
-// })
+AFRAME.registerComponent('box-loader', {
+    init: function () {
+        this.el.addEventListener('model-loaded', e => {
+            console.log('Model loaded!');
+            var m = document.querySelector("a-marker")
+            setTimeout(
+                function () {
+                    document.querySelector(".js-loader").classList.remove('is-visible');
+                    m.addEventListener("markerFound", (e)=>{
+                        document.querySelector(".js-label").classList.remove('is-visible')
+                        document.querySelector(".js-button").classList.add('is-visible')
+                    })
+                    m.addEventListener("markerLost", (e)=>{
+                        setTimeout(
+                            function () {
+                                document.querySelector(".js-label").classList.add('is-visible')
+                                document.querySelector(".js-button").classList.remove('is-visible')
+                            }
+                        ), 1000
+                    })
+                }, 1000
+            );
+        })
+    }
+})
 
 // Console log text if element is loaded
 AFRAME.registerComponent('log', {
