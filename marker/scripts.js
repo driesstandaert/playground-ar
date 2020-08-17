@@ -30,7 +30,7 @@ AFRAME.registerComponent('box-loader', {
             setTimeout(
                 function () {
                     loader.classList.remove('is-visible');
-                    label.classList.add('is-visible');
+                    //label.classList.add('is-visible');
                     marker.addEventListener("markerFound", (e)=>{
                         label.classList.remove('is-visible')
                         controls.classList.add('is-visible')
