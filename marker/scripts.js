@@ -32,8 +32,12 @@ AFRAME.registerComponent('box-loader', {
                         document.querySelector(".js-button").classList.add('is-visible')
                     })
                     m.addEventListener("markerLost", (e)=>{
-                        document.querySelector(".js-label").classList.add('is-visible')
-                        document.querySelector(".js-button").classList.remove('is-visible')
+                        setTimeout(
+                            function () {
+                                document.querySelector(".js-label").classList.add('is-visible')
+                                document.querySelector(".js-button").classList.remove('is-visible')
+                            }
+                        ), 500
                     })
                 }, 1000
             );
