@@ -27,22 +27,22 @@ AFRAME.registerComponent('box-loader', {
             setTimeout(
                 function () {
                     document.querySelector(".js-loader").classList.remove('is-visible');
-                    m.addEventListener("markerFound", (e)=>{
-                        document.querySelector(".js-label").classList.remove('is-visible')
-                        document.querySelector(".js-button").classList.add('is-visible')
-                    })
-                    m.addEventListener("markerLost", (e)=>{
-                        setTimeout(
-                            function () {
-                                document.querySelector(".js-label").classList.add('is-visible')
-                                document.querySelector(".js-button").classList.remove('is-visible')
-                                console.log('lost 1000 later');
-                                
-                            }
-                        ), 1000
-                    })
                 }, 1000
             );
+            m.addEventListener("markerFound", (e)=>{
+                document.querySelector(".js-label").classList.remove('is-visible')
+                document.querySelector(".js-button").classList.add('is-visible')
+            })
+            m.addEventListener("markerLost", (e)=>{
+                setTimeout(
+                    function () {
+                        document.querySelector(".js-label").classList.add('is-visible')
+                        document.querySelector(".js-button").classList.remove('is-visible')
+                        console.log('lost 1000 later');
+                        
+                    }
+                ), 1000
+            });
         })
     }
 })
