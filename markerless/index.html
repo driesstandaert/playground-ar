@@ -13,7 +13,7 @@
       <a-assets>
         <a-asset-item id="bievre" src="../assets/animals/bievre/scene.gltf"></a-asset-item>
       </a-assets>
-      <a-entity id="sky" geometry="primitive: sphere; radius: 100" material="shader: sky; side: back" sun-position-setter>
+      <a-entity id="sky" geometry="primitive: sphere; radius: 100" material="shader: sky; side: back" sun-position-setter hide-in-ar-mode>
         <a-entity id="orbit" animation="property: rotation; to: 0 360 0; dur: 5000; loop: true; easing: linear"></a-entity>
       </a-entity>
       <a-entity gltf-model="#bievre" scale="16 16 16" position="0 0 -2" play-all-model-animations ></a-entity>
