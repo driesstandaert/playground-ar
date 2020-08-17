@@ -33,7 +33,7 @@
   transition: opacity .3s;
 }
 
-.c-button .is-visible {
+.c-button.is-visible {
   opacity: 1;
   transition: opacity .3s;
 }
@@ -54,7 +54,7 @@
   transition: opacity .3s;
 }
 
-.c-loader .is-visible {
+.c-loader.is-visible {
   opacity: 1;
   transition: opacity .3s;
 }
@@ -111,7 +111,7 @@
   transition: opacity .3s;
 }
 
-.c-label .is-visible {
+.c-label.is-visible {
   opacity: 1;
   transition: opacity .3s;
 }
