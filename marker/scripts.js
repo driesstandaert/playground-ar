@@ -30,7 +30,10 @@ AFRAME.registerComponent('box-loader', {
             setTimeout(
                 function () {
                     loader.classList.remove('is-visible');
-                    if(marker.object3D.visible != true){
+                    
+                    if(marker.object3D.visible == true){
+                        controls.classList.add('is-visible')
+                    } else {
                         label.classList.add('is-visible');
                     }
 
