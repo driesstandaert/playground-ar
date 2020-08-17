@@ -1,5 +1,3 @@
-/* global AFRAME, THREE */
-
 /**
  * Player for animation clips. Intended to be compatible with any model format that supports
  * skeletal or morph animations.
@@ -34,6 +32,7 @@ AFRAME.registerComponent('play-all-model-animations', {
   }
 });
 
+// Sky background + shader 
 AFRAME.registerComponent('sun-position-setter', {
   init: function () {
     var skyEl = this.el;
@@ -61,6 +60,8 @@ AFRAME.registerComponent('sun-position-setter', {
   }
 });
 
+
+// Hide element in AR (for example background)
 AFRAME.registerComponent('hide-in-ar-mode', {
   // Set this object invisible while in AR mode.
   init: function () {
@@ -76,7 +77,7 @@ AFRAME.registerComponent('hide-in-ar-mode', {
   }
 });
 
-
+// 
 // Requires a build from the latest a-frame master (August 2016, v0.3)
 AFRAME.registerComponent('wobble-normal', {
 	schema: {},
@@ -89,6 +90,7 @@ AFRAME.registerComponent('wobble-normal', {
 	}
 })
 
+// Create water 
 AFRAME.registerPrimitive('a-ocean-plane', {
 	defaultComponents: {
 		geometry: {
@@ -111,3 +113,37 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 		'wobble-normal': {}
 	},
 });
+
+
+// Show loading screen before model is loaded
+AFRAME.registerComponent('box-loader', {
+  init: function () {
+      this.el.addEventListener('model-loaded', e => {
+          console.log('Model loaded!');
+          const loader = document.querySelector(".js-loader")
+          // const marker = document.querySelector("a-marker")
+          // const label = document.querySelector(".js-label")
+          // const controls = document.querySelector(".js-controls")
+          setTimeout(
+              function () {
+                  loader.classList.remove('is-visible');
+                  
+                  // if(marker.object3D.visible == true){
+                  //     controls.classList.add('is-visible')
+                  // } else {
+                  //     label.classList.add('is-visible');
+                  // }
+
+                  // marker.addEventListener("markerFound", (e)=>{
+                  //     label.classList.remove('is-visible')
+                  //     controls.classList.add('is-visible')
+                  // })
+                  // marker.addEventListener("markerLost", (e)=>{
+                  //     label.classList.add('is-visible')
+                  //     controls.classList.remove('is-visible')
+                  // });
+              }, 1000
+          );
+      })
+  }
+})
