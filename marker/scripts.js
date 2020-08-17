@@ -26,18 +26,18 @@ AFRAME.registerComponent('box-loader', {
             const loader = document.querySelector(".js-loader")
             const marker = document.querySelector("a-marker")
             const label = document.querySelector(".js-label")
-            const button = document.querySelector(".js-button")
+            const controls = document.querySelector(".js-controls")
             setTimeout(
                 function () {
                     loader.classList.remove('is-visible');
                     label.classList.add('is-visible');
                     marker.addEventListener("markerFound", (e)=>{
                         label.classList.remove('is-visible')
-                        button.classList.add('is-visible')
+                        controls.classList.add('is-visible')
                     })
                     marker.addEventListener("markerLost", (e)=>{
                         label.classList.add('is-visible')
-                        button.classList.remove('is-visible')
+                        controls.classList.remove('is-visible')
                     });
                 }, 1000
             );
