@@ -89,8 +89,9 @@
     display: block;
     width: 80%;
     margin: 0 auto;
+    padding: 10px 0;
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     left: 10%;
   }
 
