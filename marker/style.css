@@ -19,7 +19,7 @@
   right: 0;
 }
 
-button {
+.c-button {
   border: 2px solid white;
   background-color: transparent;
   width: 2em;
@@ -29,8 +29,15 @@ button {
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
   outline: none;
-  display: none; /* Hide before model is loaded  */
+  opacity: 0;
+  transition: opacity .3s;
 }
+
+.c-button .is-visible {
+  opacity: 1;
+  transition: opacity .3s;
+}
+
 
 .c-loader {
   height: 100%;
@@ -43,6 +50,13 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.c-loader .is-visible {
+  opacity: 1;
+  transition: opacity .3s;
 }
 
   .c-loader__svg {
@@ -93,7 +107,13 @@ button {
   z-index: 999999;
   text-align: center;
   padding: 10px;
-  display: none;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.c-label .is-visible {
+  opacity: 1;
+  transition: opacity .3s;
 }
 
 

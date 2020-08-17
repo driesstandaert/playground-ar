@@ -26,16 +26,16 @@ AFRAME.registerComponent('box-loader', {
             var m = document.querySelector("a-marker")
             setTimeout(
                 function () {
-                    document.querySelector(".js-loader").style.display = "none";
+                    document.querySelector(".js-loader").classList.remove('is-visible');
                     m.addEventListener("markerFound", (e)=>{
-                        document.querySelector(".js-label").style.display = "none";
-                        document.querySelector(".js-button").style.display = "block";
+                        document.querySelector(".js-label").classList.remove('is-visible')
+                        document.querySelector(".js-button").classList.add('is-visible')
                     })
                     m.addEventListener("markerLost", (e)=>{
-                        document.querySelector(".js-label").style.display = "block";
-                        document.querySelector(".js-button").style.display = "none";
+                        document.querySelector(".js-label").classList.add('is-visible')
+                        document.querySelector(".js-button").classList.remove('is-visible')
                     })
-                }, 3000
+                }, 1000
             );
         })
     }
