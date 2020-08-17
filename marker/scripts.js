@@ -36,6 +36,8 @@ AFRAME.registerComponent('box-loader', {
                             function () {
                                 document.querySelector(".js-label").classList.add('is-visible')
                                 document.querySelector(".js-button").classList.remove('is-visible')
+                                console.log('lost 1000 later');
+                                
                             }
                         ), 1000
                     })
