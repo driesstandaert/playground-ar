@@ -27,7 +27,6 @@ AFRAME.registerComponent('box-loader', {
             setTimeout(
                 function () {
                     document.querySelector(".js-loader").style.display = "none";
-                    document.querySelector(".js-label").style.display = "block";
                     m.addEventListener("markerFound", (e)=>{
                         document.querySelector(".js-label").style.display = "none";
                         document.querySelector(".js-button").style.display = "block";
