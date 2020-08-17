@@ -24,7 +24,7 @@ AFRAME.registerComponent('box-loader', {
         this.el.addEventListener('model-loaded', e => {
             console.log('Model loaded!');
             var m = document.querySelector("a-marker")
-            setInterval(
+            setTimeout(
                 function () {
                     document.querySelector(".js-loader").style.display = "none";
                     document.querySelector(".js-label").style.display = "block";
