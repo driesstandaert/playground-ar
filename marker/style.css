@@ -1,16 +1,3 @@
-.c-label {
-  position: fixed;
-  top: 10px;
-  font-family: monospace;
-  font-size: 1.25em;
-  color: white;
-  z-index: 999999;
-  left: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
 .is-centered {
   justify-content: center;
   position: fixed;
@@ -42,6 +29,7 @@ button {
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
   outline: none;
+  display: none; /* Hide before model is loaded  */
 }
 
 .c-loader {
@@ -58,13 +46,13 @@ button {
 }
 
   .c-loader__svg {
-    transform-origin: 50% 65%;
+    width: 60px;
   }
 
     .c-loader__path {
       stroke-dasharray: 176;
       stroke-dashoffset: 176;
-      animation: dash 2s linear infinite;
+      animation: dash 1.8s ease-in infinite;
     }
 
     @keyframes dash {
@@ -91,6 +79,22 @@ button {
     bottom: 20px;
     left: 10%;
   }
+
+.c-label {
+  position: fixed;
+  bottom: 20px;
+  left: 10%;
+  font-family: 'Alata', sans-serif;
+  font-size: .875em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  width: 80%;
+  z-index: 999999;
+  text-align: center;
+  padding: 10px;
+  display: none;
+}
 
 
 
