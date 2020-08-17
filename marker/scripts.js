@@ -19,31 +19,31 @@ AFRAME.registerComponent('shadow-material', {
 // })
 
 // Show loading screen before model is loaded
-AFRAME.registerComponent('box-loader', {
-    init: function () {
-        this.el.addEventListener('model-loaded', e => {
-            console.log('Model loaded!');
-            const loader = document.querySelector(".js-loader")
-            const marker = document.querySelector("a-marker")
-            const label = document.querySelector(".js-label")
-            const controls = document.querySelector(".js-controls")
-            setTimeout(
-                function () {
-                    loader.classList.remove('is-visible');
-                    label.classList.add('is-visible');
-                    marker.addEventListener("markerFound", (e)=>{
-                        label.classList.remove('is-visible')
-                        controls.classList.add('is-visible')
-                    })
-                    marker.addEventListener("markerLost", (e)=>{
-                        label.classList.add('is-visible')
-                        controls.classList.remove('is-visible')
-                    });
-                }, 1000
-            );
-        })
-    }
-})
+// AFRAME.registerComponent('box-loader', {
+//     init: function () {
+//         this.el.addEventListener('model-loaded', e => {
+//             console.log('Model loaded!');
+//             const loader = document.querySelector(".js-loader")
+//             const marker = document.querySelector("a-marker")
+//             const label = document.querySelector(".js-label")
+//             const controls = document.querySelector(".js-controls")
+//             setTimeout(
+//                 function () {
+//                     loader.classList.remove('is-visible');
+//                     label.classList.add('is-visible');
+//                     marker.addEventListener("markerFound", (e)=>{
+//                         label.classList.remove('is-visible')
+//                         controls.classList.add('is-visible')
+//                     })
+//                     marker.addEventListener("markerLost", (e)=>{
+//                         label.classList.add('is-visible')
+//                         controls.classList.remove('is-visible')
+//                     });
+//                 }, 1000
+//             );
+//         })
+//     }
+// })
 
 // Console log text if element is loaded
 AFRAME.registerComponent('log', {
