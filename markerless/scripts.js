@@ -122,6 +122,7 @@ AFRAME.registerComponent('box-loader', {
           console.log('Model loaded!');
           const loader = document.querySelector(".js-loader")
           const enter = document.querySelector(".js-enter")
+          // const videosphere = document.querySelector(".js-videosphere")
           // const marker = document.querySelector("a-marker")
           // const label = document.querySelector(".js-label")
           // const controls = document.querySelector(".js-controls")
@@ -129,6 +130,7 @@ AFRAME.registerComponent('box-loader', {
               function () {
                   loader.classList.remove('is-visible');
                   enter.classList.add('is-visible')
+                  // videosphere.play();
                   
                   // if(marker.object3D.visible == true){
                   //     controls.classList.add('is-visible')
@@ -149,3 +151,5 @@ AFRAME.registerComponent('box-loader', {
       })
   }
 })
+
+

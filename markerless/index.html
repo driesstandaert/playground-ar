@@ -39,12 +39,12 @@
           src="./textures/tears_of_steel_bridge_2k.jpg"
           crossorigin="anonymous"
         /> -->
-        <video id="skysphere" preload="auto" autoplay muted playsinline loop="true" src="./textures/nice.mp4" crossOrigin="anonymous"></video>
+        <video id="skysphere" preload="none" autoplay playsinline loop src="./textures/nice.mp4" crossOrigin="anonymous"></video>
       </a-assets>
       <!-- <a-entity id="sky" geometry="primitive: sphere; radius: 100" material="shader: sky; side: back" sun-position-setter hide-in-ar-mode>
         <a-entity id="orbit" animation="property: rotation; to: 0 360 0; dur: 5000; loop: true; easing: linear"></a-entity>
       </a-entity> -->
-      <a-videosphere src="#skysphere" hide-in-ar-mode></a-videosphere>
+      <a-videosphere class="js-videosphere" src="#skysphere" hide-in-ar-mode></a-videosphere>
 
       <a-ocean-plane
         material="normalMap: #water-normal; sphericalEnvMap: #skysphere;"
