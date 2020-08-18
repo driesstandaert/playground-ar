@@ -64,6 +64,7 @@
   }
 
     .c-loader__path {
+      stroke: #ECCAB8;
       stroke-dasharray: 176;
       stroke-dashoffset: 176;
       animation: dash 1.8s linear infinite;
@@ -87,10 +88,12 @@
     left: 10%;
     bottom: 20px;
     padding: 10px 0;
-    font-family: 'Alata', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: .875rem;
+    font-weight: 400;
     text-align: center;
-    color: rgba(255, 255, 255, .7);
+    /* color: rgba(255, 255, 255, .7); */
+    color: #ECCAB8;
     display: block;
     margin: 0 auto;
   }
@@ -101,7 +104,7 @@
   left: 10%;
   bottom: 20px;
   padding: 10px 0;
-  font-family: 'Alata', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: .875em;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
@@ -115,6 +118,90 @@
 .c-label.is-visible {
   opacity: 1;
   transition: opacity .3s;
+}
+
+.c-enter {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.c-enter.is-visible {
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.c-enter-ar,
+.c-enter-vr {
+  font-weight: bold;
+  width: 100%;
+  line-height: 16px;
+}
+
+.c-enter-ar {
+  margin-right: 6px;
+}
+
+/* .c-enter-ar {
+    right: 80px;
+} */
+.c-enter-vr-button,
+.c-enter-vr-modal,
+.c-enter-vr-modal a {
+  color: #ECCAB8;
+    user-select: none;
+    outline: 0;
+}
+.c-enter-vr-button {
+    /* background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='62' viewBox='0 0 108 62'%3E%3Ctitle%3Eaframe-vrmode-noborder-reduced-tracking%3C/title%3E%3Cpath d='M68.81,21.56H64.23v8.27h4.58a4.13,4.13,0,0,0,3.1-1.09,4.2,4.2,0,0,0,1-3,4.24,4.24,0,0,0-1-3A4.05,4.05,0,0,0,68.81,21.56Z' fill='%23fff'/%3E%3Cpath d='M96,0H12A12,12,0,0,0,0,12V50A12,12,0,0,0,12,62H96a12,12,0,0,0,12-12V12A12,12,0,0,0,96,0ZM41.9,46H34L24,16h8l6,21.84,6-21.84H52Zm39.29,0H73.44L68.15,35.39H64.23V46H57V16H68.81q5.32,0,8.34,2.37a8,8,0,0,1,3,6.69,9.68,9.68,0,0,1-1.27,5.18,8.9,8.9,0,0,1-4,3.34l6.26,12.11Z' fill='%23fff'/%3E%3C/svg%3E")
+        50% 50% no-repeat rgba(0, 0, 0, 0.35); */
+    background-color:#ECCAB8;
+    color: black;
+}
+.c-enter-ar-button {
+    /* background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='62' viewBox='0 0 108 62'%3E%3Ctitle%3Eaframe-armode-noborder-reduced-tracking%3C/title%3E%3Cpath d='M96,0H12A12,12,0,0,0,0,12V50A12,12,0,0,0,12,62H96a12,12,0,0,0,12-12V12A12,12,0,0,0,96,0Zm8,50a8,8,0,0,1-8,8H12a8,8,0,0,1-8-8V12a8,8,0,0,1,8-8H96a8,8,0,0,1,8,8Z' fill='%23fff'/%3E%3Cpath d='M43.35,39.82H32.51L30.45,46H23.88L35,16h5.73L52,46H45.43Zm-9.17-5h7.5L37.91,23.58Z' fill='%23fff'/%3E%3Cpath d='M68.11,35H63.18V46H57V16H68.15q5.31,0,8.2,2.37a8.18,8.18,0,0,1,2.88,6.7,9.22,9.22,0,0,1-1.33,5.12,9.09,9.09,0,0,1-4,3.26l6.49,12.26V46H73.73Zm-4.93-5h5a5.09,5.09,0,0,0,3.6-1.18,4.21,4.21,0,0,0,1.28-3.27,4.56,4.56,0,0,0-1.2-3.34A5,5,0,0,0,68.15,21h-5Z' fill='%23fff'/%3E%3C/svg%3E")
+        50% 50% no-repeat rgba(0, 0, 0, 0.2); */
+    background-color:#ECCAB8;
+    color: black;
+}
+.c-enter-ar-button,
+.c-enter-vr-button {
+    cursor: pointer;
+    transition: background-color 0.05s ease;
+    z-index: 9999;
+    border-radius: 20px;
+    touch-action: manipulation;
+    padding: 10px 20px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 2.8px;
+}
+
+.c-enter-ar-button:active,
+.c-enter-ar-button:hover,
+.c-enter-vr-button:active,
+.c-enter-vr-button:hover {
+    background-color: #6CEDFC;
+    color: #000;
+}
+.c-enter-vr-button.resethover {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+[data-c-enter-vr-no-webvr] .c-enter-vr-button {
+    border-color: #666;
+    opacity: 0.65;
+}
+[data-c-enter-vr-no-webvr] .c-enter-vr-button:active,
+[data-c-enter-vr-no-webvr] .c-enter-vr-button:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+    cursor: not-allowed;
 }
 
 
