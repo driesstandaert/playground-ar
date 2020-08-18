@@ -26,22 +26,24 @@
       loading-screen="enabled: false"
     >
       <a-assets>
-        <a-asset-item id="bievre" src="../assets/animals/bievre/v1/scene.gltf"></a-asset-item>
+        <a-asset-item id="bievre" src="../assets/animals/bievre/scene.gltf"></a-asset-item>
+        <a-asset-item id="trout" src="../assets/animals/trout/scene.gltf"></a-asset-item>
         <img
           id="water-normal"
           src="./textures/waternormals.jpg"
           crossorigin="anonymous"
         />
-        <img
+        <!-- <img
           id="skysphere"
           src="./textures/tears_of_steel_bridge_2k.jpg"
           crossorigin="anonymous"
-        />
+        /> -->
+        <video id="skysphere" autoplay loop="true" src="./textures/nice.mp4"></video>
       </a-assets>
       <!-- <a-entity id="sky" geometry="primitive: sphere; radius: 100" material="shader: sky; side: back" sun-position-setter hide-in-ar-mode>
         <a-entity id="orbit" animation="property: rotation; to: 0 360 0; dur: 5000; loop: true; easing: linear"></a-entity>
       </a-entity> -->
-      <a-sky src="#skysphere" position="0 -1 0" rotation="0 0 0" hide-in-ar-mode  box-loader></a-sky>
+      <a-sky src="#skysphere" width="3" height="1.5" hide-in-ar-mode  box-loader></a-sky>
 
       <a-ocean-plane
         material="normalMap: #water-normal; sphericalEnvMap: #skysphere;"
@@ -56,6 +58,21 @@
         box-loader 
         >
       </a-entity>
+     
+      <a-entity rotation="0 0 0" 
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"
+        animation__2="property: position; to: 1 -.5 0; loop: true; dur: 10000; easing: linear;"
+      >
+        <a-entity 
+        gltf-model="#trout"
+        rotation="0 200 0"
+        scale="1 1 1" 
+        position="5 -.5 0" 
+        play-all-model-animations
+        box-loader 
+        >
+      </a-entity>
+      </a-entity> 
       <div class="c-enter js-enter">
         <div id="myEnterARButton" class="c-enter-ar">
           <button class="c-enter-ar-button">AR</button>
