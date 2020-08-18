@@ -69,7 +69,7 @@ AFRAME.registerComponent('hide-in-ar-mode', {
           this.wasVisible = this.el.getAttribute('visible');
           if (this.el.sceneEl.is('ar-mode')) {
               //this.el.setAttribute('visible', false);
-              this.el.style.opacity = .2;
+              this.el.sceneEl.style.opacity = .2;
           }
       });
       this.el.sceneEl.addEventListener('exit-vr', (ev) => {
