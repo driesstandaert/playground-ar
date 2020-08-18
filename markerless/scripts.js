@@ -82,7 +82,7 @@ AFRAME.registerComponent('hide-in-ar-mode', {
 AFRAME.registerComponent('wobble-normal', {
 	schema: {},
 	tick: function (t) {
-		if (!this.el.components.material.material.normalMap) return;
+    if (!this.el.components.material.material.normalMap) return;
 		this.el.components.material.material.normalMap.offset.x += 0.0001 * Math.sin(t/10000);
 		this.el.components.material.material.normalMap.offset.y += 0.0001 * Math.cos(t/8000);
 		this.el.components.material.material.normalScale.x = 0.5 + 0.5 * Math.cos(t/1000);
@@ -151,5 +151,48 @@ AFRAME.registerComponent('box-loader', {
       })
   }
 })
+
+
+// AFRAME.registerComponent('tree-manager', {         
+//   init: function () {
+//     let el = this.el;
+//     let comp = this;
+//     let data = this.data;
+//     comp.scene = el.sceneEl.object3D;  
+//     comp.counter = 0;   
+//     comp.treeModels = [];
+//     comp.modelLoaded = false;
+    
+
+//     // After gltf model has loaded, modify it materials.
+//     el.addEventListener('model-loaded', function(ev){
+//       let mesh = el.getObject3D('mesh'); 
+      
+//       if (!mesh){return;}
+//       //console.log(mesh);
+//       mesh.traverse(function(node){
+//          if (node.isMesh){  
+//            let mat = new THREE.MeshStandardMaterial;
+//            let color = new THREE.Color(0x8ab39f);
+//            var texture = new THREE.TextureLoader().load( "textures/waternormals.jpg" )
+//           // var mat = new THREE.MeshBasicMaterial( { map: texture } );
+//            mat.color = color;
+//            mat.metalness = 1;
+//            mat.map = texture;
+//            mat.normalTextureRepeat = '50 50';
+//            mat.normalTextureOffset = '0 0';
+//            mat.normalScale = '0.5 0.5';
+//            mat.color = color;
+
+//            node.material = mat;                  
+//          }
+//       });
+//       comp.modelLoaded = true;
+//     });   
+//   }
+// });
+
+
+
 
 
