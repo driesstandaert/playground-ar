@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Bievre - markerless</title>
-    <meta name="description" content="glTF Model - A-Frame">
+    <meta name="description" content="Bievre">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="scripts.js"></script>
     <!-- <script src="shaders/water.js"></script> -->
@@ -38,12 +39,12 @@
           src="./textures/tears_of_steel_bridge_2k.jpg"
           crossorigin="anonymous"
         /> -->
-        <video id="skysphere" autoplay loop="true" src="./textures/nice.mp4"></video>
+        <video id="skysphere" preload="auto" autoplay loop="true" src="./textures/nice.mp4" crossOrigin="anonymous"></video>
       </a-assets>
       <!-- <a-entity id="sky" geometry="primitive: sphere; radius: 100" material="shader: sky; side: back" sun-position-setter hide-in-ar-mode>
         <a-entity id="orbit" animation="property: rotation; to: 0 360 0; dur: 5000; loop: true; easing: linear"></a-entity>
       </a-entity> -->
-      <a-sky src="#skysphere" width="3" height="1.5" hide-in-ar-mode  box-loader></a-sky>
+      <a-videosphere src="#skysphere" hide-in-ar-mode  box-loader></a-videosphere>
 
       <a-ocean-plane
         material="normalMap: #water-normal; sphericalEnvMap: #skysphere;"
