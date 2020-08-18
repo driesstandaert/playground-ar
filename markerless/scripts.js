@@ -69,12 +69,15 @@ AFRAME.registerComponent('hide-in-ar-mode', {
           this.wasVisible = this.el.getAttribute('visible');
           if (this.el.sceneEl.is('ar-mode')) {
               //this.el.setAttribute('visible', false);
-              this.el.style.opacity = .2;
+              // this.el.style.opacity = .2;
+              // this.el.setAttribute('style', 'opacity: 0.2');
+              this.el.setAttribute('material', 'opacity: 0.0; transparent: true');
           }
       });
       this.el.sceneEl.addEventListener('exit-vr', (ev) => {
           if (this.wasVisible) this.el.setAttribute('visible', true);
-          this.el.style.opacity = 1;
+          // this.el.style.opacity = .1;
+          
       });
   }
 });
