@@ -199,27 +199,35 @@ AFRAME.registerComponent('box-loader', {
 // console.log(angle);
 
 
-AFRAME.registerComponent('rotation-reader', {
-  tick: function () {
-    // `this.el` is the element.
-    // `object3D` is the three.js object.
+AFRAME.registerComponent('camera-logger', {
 
-    // `rotation` is a three.js Euler using radians. `quaternion` also available.
-    // console.log(this.el.object3D.rotation);
+  schema: {
+    timestamp: {type: 'int'},
+    seconds: {type: 'int'} // default 0
+  },
 
-    // `position` is a three.js Vector3.
-    // console.log(this.el.object3D.position);
+  log : function () {
+    var cameraEl = this.el.sceneEl.camera.el;
+    var rotation = cameraEl.getAttribute('rotation');
+    var worldPos = new THREE.Vector3();
+    worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
+    console.log("Time: " + this.data.seconds 
+                + "; Camera Position: (" + worldPos.x.toFixed(2) + ", " + worldPos.y.toFixed(2) + ", " + worldPos.z.toFixed(2) 
+                + "); Camera Rotation: (" + rotation.x.toFixed(2) + ", " + rotation.y.toFixed(2) + ", " + rotation.z.toFixed(2) + ")");        
+  },
 
-    // var worldQuaternion = new THREE.Quaternion();
-    // var testje = this.el.object3D.getWorldQuaternion(worldQuaternion);
-    // console.log(testje);
+  play: function () {
+    this.data.timestamp = Date.now();
+    this.log();
+  },
 
-    var cameraEl = this.el
-var worldPos = new THREE.Vector3();
-worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
-console.log(worldPos.x);
-    
-  }
+  tick: function () {  
+    if (Date.now() - this.data.timestamp > 1000) {
+      this.data.timestamp += 1000;
+      this.data.seconds += 1;
+      this.log();
+    }
+  },
 });
 
 
