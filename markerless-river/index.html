@@ -44,15 +44,21 @@
          box-loader 
        ></a-ocean-plane>
       <a-sky src="#skysphere" hide-in-ar-mode></a-sky>
-      <a-entity 
-        gltf-model="#bievre" 
-        scale="1 1 1"
-        position="-2 -2 -10"
-        rotation="0 -20 0"
-        play-all-model-animations
-        box-loader 
-        >
-      </a-entity>
+
+      <a-entity rotation="0 0 0" 
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"
+        animation__2="property: position; to: 0 -1 0; loop:true; dur: 500; easing: linear; dir:alternate;"
+      >
+        <a-entity 
+          gltf-model="#bievre" 
+          scale=".5 .5 .5"
+          position="-2 -1 -10"
+          rotation="0 -20 0"
+          play-all-model-animations
+          box-loader 
+          >
+        </a-entity>
+      </a-entity> 
 
       <a-entity rotation="0 0 0" 
         animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"
