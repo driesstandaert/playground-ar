@@ -323,12 +323,8 @@ body {
   line-height: 16px;
 }
 
-.c-enter-ar {
-  /* margin-right: 6px; */
-}
-
 .c-enter-vr {
-  /* display: none; */
+  display: none;
 }
 
 .c-enter-vr-button,
