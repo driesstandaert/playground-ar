@@ -251,17 +251,6 @@ window.onload = function () {
     this.classList.toggle('is-active');
   });
 
-  AFRAME.registerComponent('sound-ended', {
-    init: function () {
-        this.el.addEventListener('sound-ended', e => {
-            console.log('Sound ended!');
-            btnPlay.classList.remove('is-playing');
-            overlay.classList.toggle('is-visible');
-            audioElRiver.components.sound.stopSound();
-        })
-    }
-  })
-
   btnClose.addEventListener('click', function () {
     overlay.classList.toggle('is-visible');
   });
@@ -273,3 +262,20 @@ window.onload = function () {
     audioElVoiceover.components.sound.playSound();
   });
 }
+
+AFRAME.registerComponent('sound-ended', {
+  init: function () {
+      this.el.addEventListener('sound-ended', e => {
+          console.log('Sound ended!');
+          var sceneEl = document.querySelector('a-scene');
+          var btnPlay = document.querySelector('.js-play__button');
+          var overlay = document.querySelector('.js-overlay');
+          var audioElRiver = sceneEl.querySelector('#sound-river');
+          var audioElVoiceover = sceneEl.querySelector('#sound-voiceover');
+          btnPlay.classList.remove('is-playing');
+          overlay.classList.toggle('is-visible');
+          audioElRiver.components.sound.stopSound();
+          audioElVoiceover.components.sound.stopSound();
+      })
+  }
+})

@@ -132,7 +132,7 @@ body {
   max-width: 400px;
   max-height: 140px;
   overflow-y: scroll;
-  z-index: 99999;
+  z-index: 1000;
   font-family: 'Montserrat', sans-serif;
   font-size: .875em;
   color: #fff;
