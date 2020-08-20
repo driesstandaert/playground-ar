@@ -212,6 +212,8 @@ window.onload = function () {
   var btnPlay = document.querySelector('.js-play__button');
   var btnTranscript = document.querySelector('.js-transcript__button');
   var transcript = document.querySelector('.js-transcript');
+  var overlay = document.querySelector('.js-overlay');
+  var btnClose = document.querySelector('.js-close__button');
 
   btnMute.addEventListener('click', function () {
     this.classList.toggle('is-muted');
@@ -238,13 +240,6 @@ window.onload = function () {
   btnTranscript.addEventListener('click', function () {
     transcript.classList.toggle('is-open');
     this.classList.toggle('is-active');
-    // if (this.classList.contains('is-open')) {
-    //   audioElRiver.components.sound.playSound();
-    //   audioElVoiceover.components.sound.playSound();
-    // } else {
-    //   audioElRiver.components.sound.pauseSound();
-    //   audioElVoiceover.components.sound.pauseSound();
-    // }
   });
 
   AFRAME.registerComponent('sound-ended', {
@@ -252,9 +247,15 @@ window.onload = function () {
         this.el.addEventListener('sound-ended', e => {
             console.log('Sound ended!');
             btnPlay.classList.remove('is-playing');
+            overlay.classList.toggle('is-visible');
+            audioElRiver.components.sound.stopSound();
         })
     }
   })
+
+  btnClose.addEventListener('click', function () {
+    overlay.classList.toggle('is-visible');
+  });
 }
 
 

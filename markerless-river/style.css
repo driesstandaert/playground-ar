@@ -1,3 +1,8 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .875rem;
+}
+
 /* ************************ 
   Controls
 ************************  */
@@ -372,6 +377,94 @@
 [data-c-enter-vr-no-webvr] .c-enter-vr-button:hover {
     background-color: rgba(0, 0, 0, 0.35);
     cursor: not-allowed;
+}
+
+
+/* ***************** 
+  End screen overlay 
+********************  */
+
+.c-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden
+}
+
+.c-overlay.is-visible {
+  visibility: visible;
+}
+
+  .c-overlay__content {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    bottom: 20px;
+    padding: 10px 0;
+    font-weight: 400;
+    text-align: center;
+    /* color: rgba(255, 255, 255, .7); */
+    color: #ECCAB8;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .c-close__button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+  }
+  .c-close__button:hover {
+    opacity: 1;
+  }
+  .c-close__button:before, .c-close__button:after {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #ECCAB8;
+  }
+  .c-close__button:before {
+    transform: rotate(45deg);
+  }
+  .c-close__button:after {
+    transform: rotate(-45deg);
+  }
+
+.c-overlay__text {
+  margin-bottom: 40px;
+}
+
+.c-button {
+  text-transform: uppercase;
+  padding: 14px;
+  margin-bottom: 10px;
+  display: block;
+  text-decoration: none;
+  letter-spacing: .1rem;
+  font-weight: 700;
+}
+
+.c-button--primary {
+  background-color: #ECCAB8;
+  color: #000;
+}
+
+.c-button--secondary {
+  background-color: transparent;
+  color: #ECCAB8;
 }
 
 
