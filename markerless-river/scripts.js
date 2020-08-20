@@ -237,6 +237,7 @@ window.onload = function () {
 
   btnTranscript.addEventListener('click', function () {
     transcript.classList.toggle('is-open');
+    this.classList.toggle('is-active');
     // if (this.classList.contains('is-open')) {
     //   audioElRiver.components.sound.playSound();
     //   audioElVoiceover.components.sound.playSound();

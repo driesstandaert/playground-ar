@@ -5,7 +5,7 @@
   position: fixed;
   bottom: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   left: 0;
   right: 0;
@@ -29,7 +29,7 @@
 }
 
 .c-controls__mute {
-  padding: 10px 0 10px 10px;
+  padding: 10px 0 20px 10px;
 }
 .c-mute__button {
   border: 0;
@@ -148,7 +148,11 @@
 }
 
 .c-controls__transcript {
-  padding: 12px 0 16px 10px;
+  padding: 12px 10px 26px;
+}
+
+.c-controls__transcript.is-active {
+  box-shadow: inset 0px -3px 0px 0px #ECCAB8;
 }
 
 .c-transcript__button {
