@@ -326,7 +326,11 @@ body {
 }
 
 .c-enter-ar {
-  margin-right: 6px;
+  /* margin-right: 6px; */
+}
+
+.c-enter-vr {
+  display: none;
 }
 
 .c-enter-vr-button,
