@@ -7,7 +7,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="scripts.js"></script>
-    <!-- <script src="shaders/water.js"></script> -->
     <link rel="stylesheet" type="text/css" href="./style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   </head>
@@ -27,6 +26,8 @@
         <a-asset-item id="bievre" src="../assets/animals/bievre/scene.gltf"></a-asset-item>
         <a-asset-item id="trout" src="../assets/animals/trout/scene.gltf"></a-asset-item>
         <a-asset-item id="landscape" src="../assets/landscape/scene.gltf"></a-asset-item>
+        <audio id="river-audio" src="./audio/river-audio.mp3" preload="auto"></audio>
+        <audio id="voiceover" src="./audio/voiceover-male.mp3" preload="auto"></audio>
         <img
           id="water-normal"
           src="./textures/waternormals.jpg"
@@ -62,7 +63,7 @@
           rotation="-40 -45 0"
           animation__2="property: rotation; to: 10 -45 0; loop:true; dur: 5000; easing: easeInQuad; dir:alternate;"
           play-all-model-animations
-          box-loader 
+          box-loader
           >
         </a-entity>
       </a-entity> 
@@ -78,7 +79,7 @@
         scale="1 1 1" 
         position="2.5 -.5 0" 
         play-all-model-animations
-        box-loader 
+        box-loader
         >
         </a-entity>
       </a-entity> 
@@ -94,10 +95,18 @@
         >
       </a-entity>
 
+      <!-- Light -->
       <a-light color="point" position="0 1 0"></a-light>
+
+      <!-- Camera -->
       <!-- <a-entity camera look-controls rotation-reader></a-entity> -->
       <a-entity camera="active: true" look-controls position="0 1.6 0" camera-logger></a-entity>
 
+      <!-- Sound -->
+      <a-entity id="sound-river" sound="src: #river-audio;loop:true;volume:.5;"></a-entity>
+      <a-entity id="sound-voiceover" sound="src: #voiceover;loop:false;volume:1;" sound-ended></a-entity>
+    
+      <!-- AR/VR buttons -->
       <div class="c-enter js-enter">
         <div id="myEnterARButton" class="c-enter-ar">
           <button class="c-enter-ar-button">AR</button>
@@ -106,6 +115,26 @@
           <button class="c-enter-vr-button">VR</button>
         </div>
       </div>
+
     </a-scene>
+
+    <!-- Audio controls -->
+    <div class="c-controls js-controls">
+      <div class="c-controls__mute">
+        <button class="c-mute__button js-mute__button"><span></span></button>
+      </div>
+      <div class="c-controls__play">
+        <button class="c-play__button js-play__button"></button>
+      </div>
+      <div class="c-controls__transcript">
+        <button class="c-transcript__button js-transcript__button"></button>
+      </div>
+    </div>
+
+    <div class="c-transcript js-transcript">
+      <p class="c-transcript__paragraph">Lorem superposés valise pourparlers rêver chiots rendez-vous naissance Eiffel myrtille. Grèves Arc de Triomphe encore pourquoi sentiments baguette pédiluve une projet sentiments saperlipopette vachement le. Brume éphémère baguette Bordeaux en fait sommet avoir minitel.</p>
+      <p class="c-transcript__paragraph">Lorem superposés valise pourparlers rêver chiots rendez-vous naissance Eiffel myrtille. Grèves Arc de Triomphe encore pourquoi sentiments baguette pédiluve une projet sentiments saperlipopette vachement le. Brume éphémère baguette Bordeaux en fait sommet avoir minitel.</p>
+    </div>
+
   </body>
 </html>

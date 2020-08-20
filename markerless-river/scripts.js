@@ -32,36 +32,10 @@ AFRAME.registerComponent('play-all-model-animations', {
   }
 });
 
-// Sky background + shader 
-// AFRAME.registerComponent('sun-position-setter', {
-//   init: function () {
-//     var skyEl = this.el;
-//     var orbitEl = this.el.sceneEl.querySelector('#orbit');
+//////////////////////////////////////
+// Show element transparent in AR mode
+//////////////////////////////////////
 
-//     orbitEl.addEventListener('componentchanged', function changeSun (evt) {
-//       var sunPosition;
-//       var phi;
-//       var theta;
-
-//       if (evt.detail.name !== 'rotation') { return; }
-
-//       sunPosition = orbitEl.getAttribute('rotation');
-
-//       if(sunPosition === null) { return; }
-
-//       theta = Math.PI * (- 0.5);
-//       phi = 2 * Math.PI * (sunPosition.y / 360 - 0.5);
-//       skyEl.setAttribute('material', 'sunPosition', {
-//         x: Math.cos(phi),
-//         y: Math.sin(phi) * Math.sin(theta),
-//         z: -1
-//       });
-//     });
-//   }
-// });
-
-
-// Hide element in AR (for example background)
 AFRAME.registerComponent('hide-in-ar-mode', {
   // Set this object invisible while in AR mode.
   init: function () {
@@ -78,8 +52,11 @@ AFRAME.registerComponent('hide-in-ar-mode', {
   }
 });
 
-// 
-// Requires a build from the latest a-frame master (August 2016, v0.3)
+
+//////////////////////
+// Create water affect
+//////////////////////
+
 AFRAME.registerComponent('wobble-normal', {
 	schema: {},
 	tick: function (t) {
@@ -91,7 +68,6 @@ AFRAME.registerComponent('wobble-normal', {
 	}
 })
 
-// Create water 
 AFRAME.registerPrimitive('a-ocean-plane', {
 	defaultComponents: {
 		geometry: {
@@ -115,44 +91,34 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 	},
 });
 
+////////////////////////////////////////
+// Loading screen before model is loaded
+////////////////////////////////////////
 
-// Show loading screen before model is loaded
 AFRAME.registerComponent('box-loader', {
   init: function () {
       this.el.addEventListener('model-loaded', e => {
           console.log('Model loaded!');
           const loader = document.querySelector(".js-loader")
           const enter = document.querySelector(".js-enter")
-          // const videosphere = document.querySelector(".js-videosphere")
-          // const marker = document.querySelector("a-marker")
-          // const label = document.querySelector(".js-label")
-          // const controls = document.querySelector(".js-controls")
+          const controls = document.querySelector(".js-controls")
           setTimeout(
               function () {
                   loader.classList.remove('is-visible');
                   enter.classList.add('is-visible')
-                  // videosphere.play();
-                  
-                  // if(marker.object3D.visible == true){
-                  //     controls.classList.add('is-visible')
-                  // } else {
-                  //     label.classList.add('is-visible');
-                  // }
-
-                  // marker.addEventListener("markerFound", (e)=>{
-                  //     label.classList.remove('is-visible')
-                  //     controls.classList.add('is-visible')
-                  // })
-                  // marker.addEventListener("markerLost", (e)=>{
-                  //     label.classList.add('is-visible')
-                  //     controls.classList.remove('is-visible')
-                  // });
+                  controls.classList.add('is-visible')
               }, 1000
           );
       })
   }
 })
 
+
+
+
+////////////////////////////////
+// Change material on gltf model
+////////////////////////////////
 
 // AFRAME.registerComponent('tree-manager', {         
 //   init: function () {
@@ -198,38 +164,97 @@ AFRAME.registerComponent('box-loader', {
 
 // console.log(angle);
 
+//////////////////////
+// Log camera movement
+//////////////////////
 
-AFRAME.registerComponent('camera-logger', {
+// AFRAME.registerComponent('camera-logger', {
 
-  schema: {
-    timestamp: {type: 'int'},
-    seconds: {type: 'int'} // default 0
-  },
+//   schema: {
+//     timestamp: {type: 'int'},
+//     seconds: {type: 'int'} // default 0
+//   },
 
-  log : function () {
-    var cameraEl = this.el.sceneEl.camera.el;
-    var rotation = cameraEl.getAttribute('rotation');
-    var worldPos = new THREE.Vector3();
-    worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
-    console.log("Time: " + this.data.seconds 
-                + "; Camera Position: (" + worldPos.x.toFixed(2) + ", " + worldPos.y.toFixed(2) + ", " + worldPos.z.toFixed(2) 
-                + "); Camera Rotation: (" + rotation.x.toFixed(2) + ", " + rotation.y.toFixed(2) + ", " + rotation.z.toFixed(2) + ")");        
-  },
+//   log : function () {
+//     var cameraEl = this.el.sceneEl.camera.el;
+//     var rotation = cameraEl.getAttribute('rotation');
+//     var worldPos = new THREE.Vector3();
+//     worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
+//     console.log("Time: " + this.data.seconds 
+//                 + "; Camera Position: (" + worldPos.x.toFixed(2) + ", " + worldPos.y.toFixed(2) + ", " + worldPos.z.toFixed(2) 
+//                 + "); Camera Rotation: (" + rotation.x.toFixed(2) + ", " + rotation.y.toFixed(2) + ", " + rotation.z.toFixed(2) + ")");        
+//   },
 
-  play: function () {
-    this.data.timestamp = Date.now();
-    this.log();
-  },
+//   play: function () {
+//     this.data.timestamp = Date.now();
+//     this.log();
+//   },
 
-  tick: function () {  
-    if (Date.now() - this.data.timestamp > 1000) {
-      this.data.timestamp += 1000;
-      this.data.seconds += 1;
-      this.log();
+//   tick: function () {  
+//     if (Date.now() - this.data.timestamp > 1000) {
+//       this.data.timestamp += 1000;
+//       this.data.seconds += 1;
+//       this.log();
+//     }
+//   },
+// });
+
+
+
+
+
+
+window.onload = function () {
+  var sceneEl = document.querySelector('a-scene');
+  var audioElRiver = sceneEl.querySelector('#sound-river');
+  var audioElVoiceover = sceneEl.querySelector('#sound-voiceover');
+  var btnMute = document.querySelector('.js-mute__button');
+  var btnPlay = document.querySelector('.js-play__button');
+  var btnTranscript = document.querySelector('.js-transcript__button');
+  var transcript = document.querySelector('.js-transcript');
+
+  btnMute.addEventListener('click', function () {
+    this.classList.toggle('is-muted');
+    if (this.classList.contains('is-muted')) {
+      audioElRiver.setAttribute('sound', 'volume', 0)
+      audioElVoiceover.setAttribute('sound', 'volume', 0)
+    } else {
+      audioElRiver.setAttribute('sound', 'volume', .5)
+      audioElVoiceover.setAttribute('sound', 'volume', 1)
     }
-  },
-});
+  });
 
+  btnPlay.addEventListener('click', function () {
+    this.classList.toggle('is-playing');
+    if (this.classList.contains('is-playing')) {
+      audioElRiver.components.sound.playSound();
+      audioElVoiceover.components.sound.playSound();
+    } else {
+      audioElRiver.components.sound.pauseSound();
+      audioElVoiceover.components.sound.pauseSound();
+    }
+  });
+
+  btnTranscript.addEventListener('click', function () {
+    transcript.classList.toggle('is-open');
+    // if (this.classList.contains('is-open')) {
+    //   audioElRiver.components.sound.playSound();
+    //   audioElVoiceover.components.sound.playSound();
+    // } else {
+    //   audioElRiver.components.sound.pauseSound();
+    //   audioElVoiceover.components.sound.pauseSound();
+    // }
+  });
+
+  AFRAME.registerComponent('sound-ended', {
+    init: function () {
+        this.el.addEventListener('sound-ended', e => {
+            console.log('Sound ended!');
+            btnPlay.classList.remove('is-playing');
+        })
+    }
+  })
+}
 
 
 
