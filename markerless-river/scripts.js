@@ -268,7 +268,7 @@ window.onload = function () {
 
   btnStart.addEventListener('click', function () {
     landing.classList.remove('is-visible'); 
-    btnPlay.classList.toggle('is-playing');
+    btnPlay.classList.add('is-playing');
     audioElRiver.components.sound.playSound();
     audioElVoiceover.components.sound.playSound();
   });
