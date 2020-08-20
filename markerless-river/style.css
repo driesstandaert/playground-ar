@@ -125,7 +125,7 @@
 .c-transcript {
   position: absolute;
   max-width: 400px;
-  max-height: 90px;
+  max-height: 140px;
   overflow-y: scroll;
   z-index: 9999;
   font-family: 'Montserrat', sans-serif;
