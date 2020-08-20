@@ -206,14 +206,19 @@ AFRAME.registerComponent('box-loader', {
 
 window.onload = function () {
   var sceneEl = document.querySelector('a-scene');
+
   var audioElRiver = sceneEl.querySelector('#sound-river');
   var audioElVoiceover = sceneEl.querySelector('#sound-voiceover');
   var btnMute = document.querySelector('.js-mute__button');
   var btnPlay = document.querySelector('.js-play__button');
   var btnTranscript = document.querySelector('.js-transcript__button');
   var transcript = document.querySelector('.js-transcript');
+
   var overlay = document.querySelector('.js-overlay');
   var btnClose = document.querySelector('.js-close__button');
+
+  var btnStart = document.querySelector('.js-start__button');
+  var landing = document.querySelector('.js-landing');
 
   btnMute.addEventListener('click', function () {
     this.classList.toggle('is-muted');
@@ -255,6 +260,13 @@ window.onload = function () {
 
   btnClose.addEventListener('click', function () {
     overlay.classList.toggle('is-visible');
+  });
+
+  btnStart.addEventListener('click', function () {
+    landing.classList.remove('is-visible');
+    btnPlay.classList.toggle('is-playing');
+    audioElRiver.components.sound.playSound();
+    audioElVoiceover.components.sound.playSound();
   });
 }
 

@@ -132,7 +132,7 @@ body {
   max-width: 400px;
   max-height: 140px;
   overflow-y: scroll;
-  z-index: 9999;
+  z-index: 99999;
   font-family: 'Montserrat', sans-serif;
   font-size: .875em;
   color: #fff;
@@ -385,7 +385,7 @@ body {
 
 
 /* ***************** 
-  End screen overlay 
+  Overlay 
 ********************  */
 
 .c-overlay {
@@ -451,6 +451,17 @@ body {
   margin-bottom: 40px;
 }
 
+.c-overlay__logo {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.c-overlay__logo img {
+  width: 100%;
+}
+
+
+
 .c-button {
   text-transform: uppercase;
   padding: 14px;
@@ -459,6 +470,11 @@ body {
   text-decoration: none;
   letter-spacing: .1rem;
   font-weight: 700;
+  min-width: 200px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 auto;
 }
 
 .c-button--primary {
@@ -470,6 +486,13 @@ body {
   background-color: transparent;
   color: #ECCAB8;
 }
+
+.c-button--start {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
 
 
 
