@@ -332,7 +332,7 @@ body {
 }
 
 .c-enter-vr {
-  /* display: none; */
+  display: none;
 }
 
 .c-enter-vr-button,
