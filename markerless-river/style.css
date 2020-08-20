@@ -14,7 +14,7 @@ body {
   justify-content: space-between;
   left: 0;
   right: 0;
-  z-index: 99999;
+  z-index: 1000;
   opacity: 0;
   transition: opacity .3s;
   max-width: 400px;
@@ -132,7 +132,7 @@ body {
   max-width: 400px;
   max-height: 140px;
   overflow-y: scroll;
-  z-index: 99999;
+  z-index: 1000;
   font-family: 'Montserrat', sans-serif;
   font-size: .875em;
   color: #fff;
@@ -220,17 +220,19 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 9999;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  transition: opacity .3s;
+  /* opacity: 0;
+  transition: opacity .3s; */
+  visibility: hidden;
 }
 
 .c-loader.is-visible {
-  opacity: 1;
-  transition: opacity .3s;
+  /* opacity: 1;
+  transition: opacity .3s; */
+  visibility: hidden;
 }
 
   .c-loader__svg {
@@ -308,7 +310,7 @@ body {
   top: 20px;
   display: flex;
   justify-content: flex-end;
-  z-index: 9999;
+  z-index: 1000;
   opacity: 0;
   transition: opacity .3s;
 }
@@ -330,7 +332,7 @@ body {
 }
 
 .c-enter-vr {
-  display: none;
+  /* display: none; */
 }
 
 .c-enter-vr-button,
@@ -352,7 +354,7 @@ body {
 .c-enter-vr-button {
     cursor: pointer;
     transition: background-color 0.05s ease;
-    z-index: 9999;
+    /* z-index: 9999; */
     border-radius: 20px;
     touch-action: manipulation;
     padding: 10px 20px;
@@ -395,7 +397,7 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 99999;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
