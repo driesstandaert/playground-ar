@@ -220,6 +220,10 @@ window.onload = function () {
   var btnStart = document.querySelector('.js-start__button');
   var landing = document.querySelector('.js-landing');
 
+  const model = sceneEl.querySelector("#bievre-model")
+
+  
+
   btnMute.addEventListener('click', function () {
     this.classList.toggle('is-muted');
     if (this.classList.contains('is-muted')) {
@@ -263,13 +267,9 @@ window.onload = function () {
   });
 
   btnStart.addEventListener('click', function () {
-    landing.classList.remove('is-visible');
+    landing.classList.remove('is-visible'); 
     btnPlay.classList.toggle('is-playing');
     audioElRiver.components.sound.playSound();
     audioElVoiceover.components.sound.playSound();
   });
 }
-
-
-
-
