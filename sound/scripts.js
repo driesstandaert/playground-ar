@@ -219,11 +219,13 @@ window.onload = function () {
   btnMute.addEventListener('click', function () {
     this.classList.toggle('is-muted');
     if (this.classList.contains('is-muted')) {
-      soundRiver.volume(0)
-      soundVoiceover.volume(0)
+      // soundRiver.volume(0)
+      // soundVoiceover.volume(0)
+      soundRiver.mute(true)
+      soundVoiceover.mute(true)
     } else {
-      soundRiver.volume(0.5)
-      soundVoiceover.volume(1)
+      soundRiver.mute(false)
+      soundVoiceover.mute(false)
     }
   });
 
@@ -246,6 +248,7 @@ window.onload = function () {
 
   btnClose.addEventListener('click', function () {
     overlay.classList.toggle('is-visible');
+    soundRiver.sound.fade(.1, 1, 1000);
   });
   
 
@@ -281,18 +284,25 @@ window.onload = function () {
 
 }
 
-AFRAME.registerComponent('sound-ended', {
-  init: function () {
-      this.el.addEventListener('sound-ended', e => {
-          console.log('Sound ended!');
-          var sceneEl = document.querySelector('a-scene');
-          var btnPlay = document.querySelector('.js-play__button');
-          var overlay = document.querySelector('.js-overlay');
-          btnPlay.classList.remove('is-playing');
-          overlay.classList.toggle('is-visible');
-      })
-  }
-})
+// AFRAME.registerComponent('sound-ended', {
+//   init: function () {
+//       this.el.addEventListener('sound-ended', e => {
+//           console.log('Sound ended!');
+//           var sceneEl = document.querySelector('a-scene');
+//           var btnPlay = document.querySelector('.js-play__button');
+//           var overlay = document.querySelector('.js-overlay');
+//           btnPlay.classList.remove('is-playing');
+//           overlay.classList.toggle('is-visible');
+          
+//       })
+//   }
+// })
+
+
+//////////////////////////
+// Init Howler audio files
+/////////////////////////
+
 
 var soundVoiceover = new Howl({
   src: ['./audio/voiceover-male.mp3'],
@@ -312,7 +322,7 @@ var soundRiver = new Howl({
   src: ['./audio/river-audio.mp3'],
   html5: true, // Force to HTML5 so that the audio can stream in. Plays on IOS.
   loop: true,
-  volume: 0.5
+  volume: .2
 });
 
 

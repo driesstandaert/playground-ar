@@ -40,6 +40,7 @@ body {
   border: 0;
   background: transparent;
   outline: none;
+  cursor: pointer;
   height: 30px;
   width: 30px;
   position: relative;
@@ -166,6 +167,7 @@ body {
   width: 30px;
   outline: none;
   border: none;
+  cursor: pointer;
   position: relative;
   background: #ECCAB8;
 }
