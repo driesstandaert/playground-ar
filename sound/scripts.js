@@ -247,13 +247,38 @@ window.onload = function () {
   btnClose.addEventListener('click', function () {
     overlay.classList.toggle('is-visible');
   });
+  
 
   btnStart.addEventListener('click', function () {
     landing.classList.remove('is-visible'); 
     btnPlay.classList.add('is-playing');
     soundRiver.play();
     soundVoiceover.play();
+    loadinganime = false; // intro animation until scene starts
   });
+
+
+
+    /////////////////
+    // Logo animation
+    /////////////////
+
+    function timer(ms) {
+      return new Promise(res => setTimeout(res, ms));
+    }
+    
+    const logoSvgCircles = document.querySelectorAll(".js-logo circle");
+    let loadinganime = true;
+
+    async function introAnimation () {
+    while (loadinganime) {
+        var el = Math.floor(Math.random() * logoSvgCircles.length);
+        logoSvgCircles[el].classList.toggle("is-visible");
+        await timer(5);
+      }
+    }
+    introAnimation();
+
 }
 
 AFRAME.registerComponent('sound-ended', {
@@ -289,3 +314,8 @@ var soundRiver = new Howl({
   loop: true,
   volume: 0.5
 });
+
+
+
+
+
