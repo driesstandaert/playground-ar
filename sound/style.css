@@ -444,12 +444,12 @@ body {
   }
 
 .c-overlay__text {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .c-overlay__logo {
   max-width: 320px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
 }
 
 .c-overlay__logo img {
@@ -460,7 +460,9 @@ body {
   margin-bottom: 20px;
 }
 
-
+.c-overlay__paragraph {
+  margin: 0 0 20px;
+}
 
 .c-button {
   text-transform: uppercase;
