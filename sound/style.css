@@ -456,6 +456,10 @@ body {
   width: 100%;
 }
 
+.c-overlay__title {
+  margin-bottom: 20px;
+}
+
 
 
 .c-button {
