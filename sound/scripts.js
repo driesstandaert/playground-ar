@@ -273,7 +273,7 @@ var soundVoiceover = new Howl({
   src: ['./audio/voiceover-male.mp3'],
   loop: false,
   volume: 1,
-  html5: true,
+  html5: true, // Force to HTML5 so that the audio can stream in. Plays on IOS.
   onend: function() {
     console.log('Sound Finished!');
     var btnPlay = document.querySelector('.js-play__button');
@@ -283,19 +283,9 @@ var soundVoiceover = new Howl({
   }
 });
 
-// const soundVoiceover = new Howl({ 
-//   src, 
-//   format, 
-//   usingWebAudio: false, 
-//   html5: true, 
-//   mute: false, 
-//   loop: true, 
-//   webAudio: false, 
-//   volume: 1, 
-// })
-
 var soundRiver = new Howl({
   src: ['./audio/river-audio.mp3'],
+  html5: true, // Force to HTML5 so that the audio can stream in. Plays on IOS.
   loop: true,
   volume: 0.5
 });
