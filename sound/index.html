@@ -14,14 +14,18 @@
   </head>
   <body>
 
-    <a-scene 
+    <!-- <a-scene 
     vr-mode-ui="enterVRButton: #myEnterVRButton; enterARButton: #myEnterARButton"
+      loading-screen="enabled: false"
+    > -->
+    <a-scene 
       loading-screen="enabled: false"
     >
       <a-assets>
         <a-asset-item id="bievre" src="../assets/animals/bievre/scene.gltf"></a-asset-item>
         <a-asset-item id="trout" src="../assets/animals/trout/scene.gltf"></a-asset-item>
         <a-asset-item id="landscape" src="../assets/landscape/scene.gltf"></a-asset-item>
+        <a-asset-item id="sphere" src="../assets/sphere/sphere_sin.gltf"></a-asset-item>
         <img
           id="water-normal"
           src="./textures/waternormals.jpg"
@@ -79,6 +83,29 @@
         </a-entity>
       </a-entity> 
 
+      <!-- <a-entity 
+        gltf-model="#sphere"
+        rotation="0 0 0"
+        scale="1 1 1" 
+        position="0 0 -10" 
+        play-all-model-animations
+        box-loader
+        >
+        </a-entity>
+
+        <a-entity rotation="0 0 0" 
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"
+        animation__2="property: position; to: 0 -1 0; loop:true; dur: 10000; easing: linear; dir:alternate;"
+      >
+      <a-image 
+        src="./images/bievre-wild.png"
+        rotation="0 0 0"
+        scale="1 1 1" 
+        position="0 1 -5" 
+        width="3" height="1.5"
+      ></a-image>
+    </a-entity>  -->
+
       <!-- Landscape -->
       <a-entity 
         gltf-model="#landscape" 
@@ -97,14 +124,14 @@
       <a-entity camera="active: true" look-controls position="0 1.6 0" camera-logger></a-entity>
     
       <!-- AR/VR buttons -->
-      <div class="c-enter js-enter">
+      <!-- <div class="c-enter js-enter">
         <div id="myEnterARButton" class="c-enter-ar">
           <button class="c-enter-ar-button">AR</button>
         </div>
         <div id="myEnterVRButton" class="c-enter-vr">
           <button class="c-enter-vr-button">VR</button>
         </div>
-      </div>
+      </div> -->
 
     </a-scene>
 
