@@ -11,9 +11,6 @@
     <link rel="stylesheet" type="text/css" href="./style.css"/>
     <link rel="icon" type="image/png" href="./images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <script>
- 
-    </script>
   </head>
   <body>
     <a-scene 
@@ -35,6 +32,9 @@
           src="./textures/bg-sky.jpg"
           crossorigin="anonymous"
         />
+        <video id="video" autoplay loop crossorigin="anonymous">
+          <source src="./images/360.mp4"></source>
+        </video>
       </a-assets>
 
       <!-- Water plane -->
@@ -46,20 +46,20 @@
       </a-ocean-plane>
 
       <!-- Sky background -->
-      <a-sky src="#skysphere" hide-in-ar-mode></a-sky>
+      <a-sky src="#video" rotation="0 180 0" hide-in-ar-mode></a-sky>
+
+      <!-- animation__2="property: position; to: 0 0 0; loop:true; dur: 2000; easing: linear; dir:alternate;" -->
 
       <!-- Beaver -->
       <a-entity rotation="0 0 0" 
         animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear;"
-        animation__2="property: position; to: 0 -1 0; loop:true; dur: 2000; easing: linear; dir:alternate;"
       >
-        <a-entity 
+      <a-entity 
           id="bievre-model"
           gltf-model="#bievre" 
-          scale=".5 .5 .5"
-          position="2 -1 -10"
-          rotation="-40 -45 0"
-          animation__2="property: rotation; to: 10 -45 0; loop:true; dur: 5000; easing: easeInQuad; dir:alternate;"
+          scale="1 1 1"
+          position="2 -.5 -5"
+          rotation="0 100 0"
           play-all-model-animations
           box-loader
           >
