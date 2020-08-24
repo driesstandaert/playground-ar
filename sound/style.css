@@ -379,6 +379,10 @@ body {
     cursor: not-allowed;
 }
 
+.a-orientation-modal {
+  display: none !important;
+}
+
 
 /* ***************** 
   Overlay 
