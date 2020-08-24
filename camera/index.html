@@ -62,16 +62,14 @@
 
       <!-- Beaver -->
       <a-entity rotation="0 0 0" 
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear;"
-        animation__2="property: position; to: 0 -1 0; loop:true; dur: 2000; easing: linear; dir:alternate;"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear; delay: 4000;"
       >
-        <a-entity 
+      <a-entity 
           id="bievre-model"
           gltf-model="#bievre" 
-          scale=".5 .5 .5"
-          position="2 -1 -10"
-          rotation="-40 -45 0"
-          animation__2="property: rotation; to: 10 -45 0; loop:true; dur: 5000; easing: easeInQuad; dir:alternate;"
+          scale="2 2 2"
+          position="0 -.5 -7"
+          rotation="0 100 0"
           play-all-model-animations
           box-loader
           >
@@ -94,16 +92,7 @@
         </a-entity>
       </a-entity> 
 
-      <a-entity 
-      id="bievre-model"
-      gltf-model="#bievre" 
-      scale="2 2 2"
-      position="0 -.5 -7"
-      rotation="0 100 0"
-      play-all-model-animations
-      box-loader
-      >
-    </a-entity>
+     
 
       <!-- Landscape -->
       <a-entity 
