@@ -29,26 +29,36 @@
         />
         <img
           id="skysphere"
-          src="./textures/bg-sky.jpg"
+          src="./images/riverbed.jpg"
           crossorigin="anonymous"
         />
-        <video id="video" autoplay loop crossorigin="anonymous">
+        <img
+          id="skysphere"
+          src="./images/riverbed.jpg"
+          crossorigin="anonymous"
+        />
+        <img
+          id="reflection"
+          src="./images/sky.jpg"
+          crossorigin="anonymous"
+        />
+        <!-- <video id="video" autoplay loop crossorigin="anonymous">
           <source src="./images/360.mp4"></source>
-        </video>
+        </video> -->
       </a-assets>
 
       <!-- Water plane -->
       <a-ocean-plane
-         material="normalMap: #water-normal; sphericalEnvMap: #skysphere;"
+         material="normalMap: #water-normal; sphericalEnvMap: #reflection;"
          position="0 0 0"
          box-loader 
        >
       </a-ocean-plane>
 
       <!-- Sky background -->
-      <!-- <a-sky src="#skysphere" hide-in-ar-mode></a-sky> -->
+      <a-sky src="#skysphere" hide-in-ar-mode></a-sky>
 
-      <a-videosphere src="#video" rotation="0 0 0"></a-videosphere>
+      <!-- <a-videosphere src="#video" rotation="0 0 0"></a-videosphere> -->
 
       <!-- animation__2="property: position; to: 0 0 0; loop:true; dur: 2000; easing: linear; dir:alternate;" -->
 
@@ -119,7 +129,7 @@
       </a-entity>
 
       <!-- Light -->
-      <a-light color="point" position="0 1 0"></a-light>
+      <a-light position="0 5 0"></a-light>
 
       <!-- Camera -->
       <a-entity camera="active: true" look-controls position="0 1.6 0" camera-logger></a-entity>

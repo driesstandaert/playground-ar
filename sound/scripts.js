@@ -78,9 +78,9 @@ AFRAME.registerPrimitive('a-ocean-plane', {
     rotation: '-90 0 0',
 		material: {
 			shader: 'standard',
-			color: '#8ab39f',
+			color: '#A3D3D5',
 			metalness: 1,
-			roughness: 0.2,
+			roughness: 0.1,
 			normalMap: 'url(./waternormals.jpg)',
 			normalTextureRepeat: '50 50',
 			normalTextureOffset: '0 0',
