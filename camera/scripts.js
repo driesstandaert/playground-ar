@@ -95,110 +95,40 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 // Loading screen before model is loaded
 ////////////////////////////////////////
 
-AFRAME.registerComponent('box-loader', {
-  init: function () {
-      this.el.addEventListener('model-loaded', e => {
-          console.log('Model loaded!');
-          const loader = document.querySelector(".js-loader")
-          const enter = document.querySelector(".js-enter")
-          const controls = document.querySelector(".js-controls")
-          setTimeout(
-              function () {
-                  loader.classList.remove('is-visible');
-                  enter.classList.add('is-visible')
-                  controls.classList.add('is-visible')
-              }, 1000
-          );
-      })
-  }
-})
-
-
-
-
-////////////////////////////////
-// Change material on gltf model
-////////////////////////////////
-
-// AFRAME.registerComponent('tree-manager', {         
+// AFRAME.registerComponent('box-loader', {
 //   init: function () {
-//     let el = this.el;
-//     let comp = this;
-//     let data = this.data;
-//     comp.scene = el.sceneEl.object3D;  
-//     comp.counter = 0;   
-//     comp.treeModels = [];
-//     comp.modelLoaded = false;
-    
-
-//     // After gltf model has loaded, modify it materials.
-//     el.addEventListener('model-loaded', function(ev){
-//       let mesh = el.getObject3D('mesh'); 
-      
-//       if (!mesh){return;}
-//       //console.log(mesh);
-//       mesh.traverse(function(node){
-//          if (node.isMesh){  
-//            let mat = new THREE.MeshStandardMaterial;
-//            let color = new THREE.Color(0x8ab39f);
-//            var texture = new THREE.TextureLoader().load( "textures/waternormals.jpg" )
-//           // var mat = new THREE.MeshBasicMaterial( { map: texture } );
-//            mat.color = color;
-//            mat.metalness = 1;
-//            mat.map = texture;
-//            mat.normalTextureRepeat = '50 50';
-//            mat.normalTextureOffset = '0 0';
-//            mat.normalScale = '0.5 0.5';
-//            mat.color = color;
-
-//            node.material = mat;                  
-//          }
-//       });
-//       comp.modelLoaded = true;
-//     });   
+//       this.el.addEventListener('model-loaded', e => {
+//           console.log('Model loaded!');
+//           const loader = document.querySelector(".js-loader")
+//           const enter = document.querySelector(".js-enter")
+//           const controls = document.querySelector(".js-controls")
+//           setTimeout(
+//               function () {
+//                   loader.classList.remove('is-visible');
+//                   enter.classList.add('is-visible')
+//                   controls.classList.add('is-visible')
+//               }, 1000
+//           );
+//       })
 //   }
-// });
+// })
 
-// var vector = camera.getWorldDirection();
-// angle = THREE.Math.radToDeg( Math.atan2(vector.x,vector.z) );  
-
-// console.log(angle);
-
-//////////////////////
-// Log camera movement
-//////////////////////
-
-// AFRAME.registerComponent('camera-logger', {
-
-//   schema: {
-//     timestamp: {type: 'int'},
-//     seconds: {type: 'int'} // default 0
-//   },
-
-//   log : function () {
-//     var cameraEl = this.el.sceneEl.camera.el;
-//     var rotation = cameraEl.getAttribute('rotation');
-//     var worldPos = new THREE.Vector3();
-//     worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
-//     console.log("Time: " + this.data.seconds 
-//                 + "; Camera Position: (" + worldPos.x.toFixed(2) + ", " + worldPos.y.toFixed(2) + ", " + worldPos.z.toFixed(2) 
-//                 + "); Camera Rotation: (" + rotation.x.toFixed(2) + ", " + rotation.y.toFixed(2) + ", " + rotation.z.toFixed(2) + ")");        
-//   },
-
-//   play: function () {
-//     this.data.timestamp = Date.now();
-//     this.log();
-//   },
-
-//   tick: function () {  
-//     if (Date.now() - this.data.timestamp > 1000) {
-//       this.data.timestamp += 1000;
-//       this.data.seconds += 1;
-//       this.log();
-//     }
-//   },
-// });
-
+document.addEventListener('DOMContentLoaded', function() {
+  var scene = document.querySelector('a-scene');
+  scene.addEventListener('loaded', function (e) {
+    console.log('scene loaded!');
+    const loader = document.querySelector(".js-loader")
+    const enter = document.querySelector(".js-enter")
+    const controls = document.querySelector(".js-controls")
+    setTimeout(
+        function () {
+            loader.classList.remove('is-visible');
+            enter.classList.add('is-visible')
+            controls.classList.add('is-visible')
+        }, 1000
+    );
+  });
+});
 
 
 
@@ -254,28 +184,47 @@ window.onload = function () {
 
   btnStart.addEventListener('click', function () {
     landing.classList.remove('is-visible'); 
-    btnPlay.classList.add('is-playing');
-    soundRiver.play();
-    soundVoiceover.play();
     loadinganime = false; // intro animation until scene starts
+
+    if( document.readyState !== 'loading' ) {
+      console.log( 'document is already ready, just execute code here' );
+      myInitCode();
+    } else {
+        document.addEventListener('DOMContentLoaded', function () {
+        console.log( 'document was not ready, place code here' );
+        myInitCode();
+      });
+    }
+    
+    function myInitCode() {
+      btnPlay.classList.add('is-playing');
+      soundRiver.play();
+      soundVoiceover.play();
+    }
+
   });
 
-       // Grab elements, create settings, etc.
-var video = document.getElementById('video');
 
-// Get access to the camera!
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Not adding `{ audio: true }` since we only want video now
-    navigator.mediaDevices.getUserMedia({ 
-      video: { 
-        facingMode: 'environment' 
-      }
-    }).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
-        video.srcObject = stream;
-        video.play();
-    });
-}
+  /////////////////////
+  // Camera background
+  ////////////////////
+
+  // Grab elements, create settings, etc.
+  var video = document.getElementById('video');
+
+  // Get access to the camera!
+  if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      // Not adding `{ audio: true }` since we only want video now
+      navigator.mediaDevices.getUserMedia({ 
+        video: { 
+          facingMode: 'environment' 
+        }
+      }).then(function(stream) {
+          //video.src = window.URL.createObjectURL(stream);
+          video.srcObject = stream;
+          video.play();
+      });
+  }
 
 
 
@@ -300,21 +249,6 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     introAnimation();
 
 }
-
-// AFRAME.registerComponent('sound-ended', {
-//   init: function () {
-//       this.el.addEventListener('sound-ended', e => {
-//           console.log('Sound ended!');
-//           var sceneEl = document.querySelector('a-scene');
-//           var btnPlay = document.querySelector('.js-play__button');
-//           var overlay = document.querySelector('.js-overlay');
-//           btnPlay.classList.remove('is-playing');
-//           overlay.classList.toggle('is-visible');
-          
-//       })
-//   }
-// })
-
 
 //////////////////////////
 // Init Howler audio files
