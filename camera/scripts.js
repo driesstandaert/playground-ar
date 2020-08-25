@@ -185,6 +185,7 @@ window.onload = function () {
   btnStart.addEventListener('click', function () {
     landing.classList.remove('is-visible'); 
     loadinganime = false; // intro animation until scene starts
+    document.querySelector('#trigger').load();
 
     if( document.readyState !== 'loading' ) {
       console.log( 'document is already ready, just execute code here' );
