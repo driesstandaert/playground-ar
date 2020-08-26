@@ -82,9 +82,9 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 			metalness: 1,
 			roughness: 0.1,
 			normalMap: 'url(./waternormals.jpg)',
-			normalTextureRepeat: '50 50',
+			normalTextureRepeat: '10 10',
 			normalTextureOffset: '0 0',
-			normalScale: '0.5 0.5',
+			normalScale: '.5 .5',
 			opacity: 0.8
 		},
 		'wobble-normal': {}
