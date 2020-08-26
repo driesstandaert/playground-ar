@@ -178,7 +178,6 @@ window.onload = function () {
 
   btnClose.addEventListener('click', function () {
     overlay.classList.toggle('is-visible');
-    //soundRiver.sound.fade(.1, 1, 1000);
   });
   
 
