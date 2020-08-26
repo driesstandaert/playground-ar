@@ -425,5 +425,12 @@ var soundRiver = new Howl({
 
 
 
-
+// AFRAME.registerComponent("rotate-compass", {
+//   init: function() {
+//       var compassdir // however you get the compass reading
+//       var pos = this.el.getAttribute('position')
+//       pos.y = THREE.Math.degToRad(-compassdir);
+//       this.el.setAttribute('position', pos)
+//   }
+// })
 

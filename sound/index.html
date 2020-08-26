@@ -16,6 +16,7 @@
     <a-scene 
       vr-mode-ui="enterVRButton: #myEnterVRButton; enterARButton: #myEnterARButton"
       loading-screen="enabled: false"
+      rotate-compass
     >
       <a-assets>
         <a-asset-item id="bievre" src="../assets/animals/bievre/scene.gltf"></a-asset-item>
@@ -128,7 +129,7 @@
       <a-light position="0 10 0"></a-light>
 
       <!-- Camera -->
-      <a-entity camera="active: true" look-controls position="0 3 0" camera-logger></a-entity>
+      <a-entity camera="active: true" look-controls position="-9 3 -7" camera-logger></a-entity>
     
       <!-- AR/VR buttons -->
       <div class="c-enter js-enter">
