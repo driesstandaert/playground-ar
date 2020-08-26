@@ -21,15 +21,10 @@
         <a-asset-item id="bievre" src="../assets/animals/bievre/scene.gltf"></a-asset-item>
         <a-asset-item id="trout" src="../assets/animals/trout/scene.gltf"></a-asset-item>
         <a-asset-item id="landscape" src="../assets/landscape/scene.gltf"></a-asset-item>
-        <a-asset-item id="sphere" src="../assets/sphere/sphere_sin.gltf"></a-asset-item>
+        <a-asset-item id="bridge" src="../assets/bridge/scene.gltf"></a-asset-item>
         <img
           id="water-normal"
           src="./textures/waternormals.jpg"
-          crossorigin="anonymous"
-        />
-        <img
-          id="skysphere"
-          src="./images/riverbed.jpg"
           crossorigin="anonymous"
         />
         <img
@@ -42,9 +37,6 @@
           src="./images/sky.jpg"
           crossorigin="anonymous"
         />
-        <!-- <video id="video" autoplay loop crossorigin="anonymous">
-          <source src="./images/360.mp4"></source>
-        </video> -->
       </a-assets>
 
       <!-- Water plane -->
@@ -57,8 +49,6 @@
 
       <!-- Sky background -->
       <a-sky src="#skysphere" hide-in-ar-mode></a-sky>
-
-      <!-- <a-videosphere src="#video" rotation="0 0 0"></a-videosphere> -->
 
       <!-- animation__2="property: position; to: 0 0 0; loop:true; dur: 2000; easing: linear; dir:alternate;" -->
 
@@ -110,6 +100,17 @@
         gltf-model="#landscape" 
         scale="1 1 1" 
         position="0 -3 0" 
+        rotation="0 0 0"
+        play-all-model-animations
+        box-loader 
+        >
+      </a-entity>
+
+       <!-- bridge -->
+      <a-entity 
+        gltf-model="#bridge" 
+        scale="2 2 2" 
+        position="0 0 -10" 
         rotation="0 0 0"
         play-all-model-animations
         box-loader 
