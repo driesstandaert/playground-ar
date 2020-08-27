@@ -362,11 +362,16 @@ window.onload = function () {
       soundVoiceover.play();
     }
 
-    if (scene.hasLoaded) {
-      playSound();
-    } else {
-      scene.addEventListener('loaded', playSound);
-    }
+    setTimeout(
+      function () {
+        if (scene.hasLoaded) {
+          playSound();
+        } else {
+          scene.addEventListener('loaded', playSound);
+        }
+      }, 3000
+    );
+
   });
 
 
@@ -413,7 +418,7 @@ window.onload = function () {
           loader.classList.remove('is-visible');
           enter.classList.add('is-visible');
           controls.classList.add('is-visible');
-        }, 1000
+        }, 3000
       );
     }
 
