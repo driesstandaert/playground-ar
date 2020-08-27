@@ -304,6 +304,7 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 
 
 window.onload = function () {
+  var scene = document.querySelector('a-scene');
   var btnMute = document.querySelector('.js-mute__button');
   var btnPlay = document.querySelector('.js-play__button');
   var btnTranscript = document.querySelector('.js-transcript__button');
@@ -349,78 +350,62 @@ window.onload = function () {
     overlay.classList.toggle('is-visible');
     //soundRiver.sound.fade(.1, 1, 1000);
   });
-  
 
   btnStart.addEventListener('click', function () {
     landing.classList.remove('is-visible'); 
     btnPlay.classList.add('is-playing');
-    
     loadinganime = false; // intro animation until scene starts
-
     function playSound () {
       soundRiver.play();
       soundVoiceover.play();
     }
-
     setTimeout(
       function () {
-        if (scene.hasLoaded) {
-          playSound();
-        } else {
-          scene.addEventListener('loaded', playSound);
-        }
-      }, 3000
+        (scene.hasLoaded) ? playSound() : scene.addEventListener('loaded', playSound);
+      }, 1000
     );
-
   });
 
+  ////////////////////////////
+  // Start scene after loading
+  ////////////////////////////
 
-    /////////////////
-    // Logo animation
-    /////////////////
+  (scene.hasLoaded) ? startScene() : scene.addEventListener('loaded', startScene);
 
-    function timer(ms) {
-      return new Promise(res => setTimeout(res, ms));
+  function startScene () {
+    console.log('Models loaded!');
+    const loader = document.querySelector(".js-loader");
+    const enter = document.querySelector(".js-enter");
+    const controls = document.querySelector(".js-controls");
+    setTimeout(
+      function () {
+        loader.classList.remove('is-visible');
+        enter.classList.add('is-visible');
+        controls.classList.add('is-visible');
+      }, 1000
+    );
+  }
+
+
+  /////////////////
+  // Logo animation
+  /////////////////
+
+  function timer(ms) {
+    return new Promise(res => setTimeout(res, ms));
+  }
+  
+  const logoSvgCircles = document.querySelectorAll(".js-logo circle");
+  let loadinganime = true;
+
+  async function introAnimation () {
+  while (loadinganime) {
+      var el = Math.floor(Math.random() * logoSvgCircles.length);
+      logoSvgCircles[el].classList.toggle("is-visible");
+      await timer(5);
     }
-    
-    const logoSvgCircles = document.querySelectorAll(".js-logo circle");
-    let loadinganime = true;
-
-    async function introAnimation () {
-    while (loadinganime) {
-        var el = Math.floor(Math.random() * logoSvgCircles.length);
-        logoSvgCircles[el].classList.toggle("is-visible");
-        await timer(5);
-      }
-    }
-    introAnimation();
-
-
-    ///////////////////////
-    // Loading screen
-    //////////////////////
-
-    var scene = document.querySelector('a-scene');
-
-    if (scene.hasLoaded) {
-      startScene();
-    } else {
-      scene.addEventListener('loaded', startScene);
-    }
-
-    function startScene () {
-      console.log('Models loaded!');
-      const loader = document.querySelector(".js-loader");
-      const enter = document.querySelector(".js-enter");
-      const controls = document.querySelector(".js-controls");
-      setTimeout(
-        function () {
-          loader.classList.remove('is-visible');
-          enter.classList.add('is-visible');
-          controls.classList.add('is-visible');
-        }, 3000
-      );
-    }
+  }
+  introAnimation();
 
 }
 
