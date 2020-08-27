@@ -1997,6 +1997,10 @@
             ],
             "name" : "lambert3",
             "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0,
+                    "texCoord" : 0
+                },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
             }
@@ -2031,6 +2035,18 @@
                     "indices" : 10
                 }
             ]
+        }
+    ],
+    "textures" : [
+        {
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Turbosquid_Body_Texture_01",
+            "uri" : "Turbosquid_Body_Texture_01.jpg"
         }
     ],
     "skins" : [

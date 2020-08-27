@@ -1,6 +1,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
-  font-size: .875rem;
+  font-size: 1rem;
 }
 
 /* ************************ 
@@ -272,7 +272,7 @@ body {
     bottom: 20px;
     padding: 10px 0;
     font-family: 'Montserrat', sans-serif;
-    font-size: .875rem;
+    font-size: 1rem;
     font-weight: 400;
     text-align: center;
     /* color: rgba(255, 255, 255, .7); */
