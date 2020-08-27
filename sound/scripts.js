@@ -194,23 +194,23 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 // Loading screen before model is loaded
 ////////////////////////////////////////
 
-AFRAME.registerComponent('box-loader', {
-  init: function () {
-      this.el.addEventListener('model-loaded', e => {
-          console.log('Model loaded!');
-          const loader = document.querySelector(".js-loader")
-          const enter = document.querySelector(".js-enter")
-          const controls = document.querySelector(".js-controls")
-          setTimeout(
-              function () {
-                  loader.classList.remove('is-visible');
-                  enter.classList.add('is-visible')
-                  controls.classList.add('is-visible')
-              }, 1000
-          );
-      })
-  }
-})
+// AFRAME.registerComponent('box-loader', {
+//   init: function () {
+//       this.el.addEventListener('model-loaded', e => {
+//           console.log('Model loaded!');
+//           const loader = document.querySelector(".js-loader")
+//           const enter = document.querySelector(".js-enter")
+//           const controls = document.querySelector(".js-controls")
+//           setTimeout(
+//               function () {
+//                   loader.classList.remove('is-visible');
+//                   enter.classList.add('is-visible')
+//                   controls.classList.add('is-visible')
+//               }, 1000
+//           );
+//       })
+//   }
+// })
 
 
 
@@ -354,9 +354,19 @@ window.onload = function () {
   btnStart.addEventListener('click', function () {
     landing.classList.remove('is-visible'); 
     btnPlay.classList.add('is-playing');
-    soundRiver.play();
-    soundVoiceover.play();
+    
     loadinganime = false; // intro animation until scene starts
+
+    function playSound () {
+      soundRiver.play();
+      soundVoiceover.play();
+    }
+
+    if (scene.hasLoaded) {
+      playSound();
+    } else {
+      scene.addEventListener('loaded', playSound);
+    }
   });
 
 
@@ -379,6 +389,33 @@ window.onload = function () {
       }
     }
     introAnimation();
+
+
+    ///////////////////////
+    // Loading screen
+    //////////////////////
+
+    var scene = document.querySelector('a-scene');
+
+    if (scene.hasLoaded) {
+      startScene();
+    } else {
+      scene.addEventListener('loaded', startScene);
+    }
+
+    function startScene () {
+      console.log('Models loaded!');
+      const loader = document.querySelector(".js-loader");
+      const enter = document.querySelector(".js-enter");
+      const controls = document.querySelector(".js-controls");
+      setTimeout(
+        function () {
+          loader.classList.remove('is-visible');
+          enter.classList.add('is-visible');
+          controls.classList.add('is-visible');
+        }, 1000
+      );
+    }
 
 }
 
@@ -433,4 +470,6 @@ var soundRiver = new Howl({
 //       this.el.setAttribute('position', pos)
 //   }
 // })
+
+
 
