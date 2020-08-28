@@ -135,13 +135,13 @@ body {
 .c-transcript {
   position: absolute;
   max-width: 400px;
-  max-height: 160px;
+  max-height: 210px;
   overflow-y: scroll;
   z-index: 1000;
   font-family: 'Montserrat', sans-serif;
   font-size: .875em;
   color: #fff;
-  bottom: 90px;
+  bottom: 100px;
   padding: 0 10px;
   opacity: 0;
   transition: 300ms opacity ease;
