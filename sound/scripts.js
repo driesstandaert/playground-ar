@@ -43,50 +43,14 @@ AFRAME.registerComponent('hide-in-ar-mode', {
           this.wasVisible = this.el.getAttribute('visible');
           if (this.el.sceneEl.is('ar-mode')) {
               this.el.setAttribute('material', 'opacity: 0.2; transparent: true');
-
-
-              this.el.addEventListener("model-loaded", ()=>{
-                const object3DEl = this.el.object3DMap;
-              console.log('this.el.object3DMap:', object3DEl);
-              
-              var mesh = this.el.getObject3D('mesh'); // For hand, the result is undefined
-              // var mesh = this.el.object3DMap.mesh; // For hand, the result is undefined
-              console.log(mesh);
-              var data = this.data;
-              if (!mesh) { return; }
-              mesh.traverse(function (node) {
-                if (node.isMesh) {
-                  console.log(node);
-                  node.material.opacity = data;
-                  node.material.transparent = data < 1.0;
-                  node.material.needsUpdate = true;
-                }
-              });
-              }, 2000)
-
-
-
-
-
+              this.el.setAttribute('visible', false);
           }
       });
       this.el.sceneEl.addEventListener('exit-vr', (ev) => {
           if (this.wasVisible) this.el.setAttribute('visible', true);
-          this.el.setAttribute('material', 'opacity: 1; transparent: false');          
+          this.el.setAttribute('material', 'opacity: 1; transparent: false');  
+          this.el.setAttribute('visible', true);        
       });
-  },
-  update: function () {
-    var mesh = this.el.getObject3D('mesh');
-    var data = this.data;
-    if (!mesh) { return; }
-    mesh.traverse(function (node) {
-      if (node.isMesh) {
-        console.log(node);
-        node.material.opacity = data;
-        node.material.transparent = data < 1.0;
-        node.material.needsUpdate = true;
-      }
-    });
   }
 });
 
