@@ -517,6 +517,10 @@ circle.is-visible {
   transition: opacity .3s ease;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 
 
 
