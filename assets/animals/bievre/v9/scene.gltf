@@ -1998,7 +1998,7 @@
             "name" : "lambert3",
             "pbrMetallicRoughness" : {
                 "metallicFactor" : 0,
-                "roughnessFactor" : 1
+                "roughnessFactor" : 0.5
             }
         }
     ],

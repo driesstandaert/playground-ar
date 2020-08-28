@@ -8,6 +8,7 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
     <script src="scripts.js"></script>
+    <script src="glow.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css"/>
     <link rel="icon" type="image/png" href="./images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -37,7 +38,7 @@
         />
         <img
           id="reflection"
-          src="./images/sky.jpg"
+          src="./images/sky-dark.jpg"
           crossorigin="anonymous"
         />
       </a-assets>
@@ -51,7 +52,16 @@
       </a-ocean-plane>
 
 
-      <!-- <a-ocean></a-ocean> -->
+      <!-- <a-ocean
+      width='50' 
+      depth='50'
+      density='1'  
+      color='#5CAACE'  
+      position='0 0 0' 
+      opacity='.6'
+      speed='0.5'
+      speedVariance='1'>
+        ></a-ocean> -->
 
       <!-- Sky background -->
       <a-sky src="#skysphere" hide-in-ar-mode></a-sky>
@@ -78,10 +88,10 @@
 
       <a-entity 
         rotation="0 0 0"
-        position="7 0 -10"  
-        animation="property: position; to: 0 0 50; loop: true; dur: 50000; easing: linear;"
+        position="14 -.75 -30"  
+        animation="property: position; to: -14 -.75 100; loop: true; dur: 157000; easing: linear;"
       >
-      <a-entity 
+      <!-- <a-entity 
         id="bievre-model"
         gltf-model="#bievre" 
         scale="2 2 2"
@@ -89,12 +99,46 @@
         rotation="15 150 0"
         play-all-model-animations
         box-loader
-        glow="enabled:true; scale:3.3"
         >
+        <a-light type="point" color="blue" position="0 0 0" distance="5"></a-light>
+      </a-entity> -->
+      <a-entity 
+        id="bievre-model"
+        gltf-model="#bievre" 
+        scale="2 2 2"
+        position="0 0 0"
+        rotation="15 150 0"
+        play-all-model-animations
+        box-loader
+        >
+        <!-- <a-light type="point" color="white" position="0 2 0" distance="10" angle="0"></a-light>
+        <a-light type="point" color="white" position="0 -.25 -1" distance="4" angle="180"></a-light>
+        <a-light type="point" color="white" position="-1 -.25 0" distance="4" angle="180"></a-light>
+        <a-light type="point" color="white" position="1 -.25 0" distance="4" angle="180"></a-light>
+        <a-light type="point" color="white" position="0.217 0.393 -2.003" distance="4" angle="180"></a-light> -->
+        <a-light type="point" color="white" position="1.207 1.741 -1.269" distance="10" angle="0"></a-light>
+        <a-light type="point" color="white" position="0 -.25 -1" distance="4" angle="180"></a-light>
       </a-entity>
+      
       </a-entity> 
 
-      
+      <!-- <a-entity 
+        id="bievre-model"
+        gltf-model="#bievre" 
+        scale="2 2 2"
+        position="7 -.25 -5"
+        rotation="15 150 0"
+        play-all-model-animations
+        box-loader
+        >
+        <a-light type="point" color="white" position="0 2 0" distance="10" angle="0"></a-light>
+        <a-light type="point" color="white" position="0 -.25 -1" distance="4" angle="180"></a-light>
+        <a-light type="point" color="white" position="-1 -.25 0" distance="4" angle="180"></a-light>
+        <a-light type="point" color="white" position="1 -.25 0" distance="4" angle="180"></a-light>
+        <a-light type="point" color="white" position="0.217 0.393 -2.003" distance="4" angle="180"></a-light>
+      </a-entity> -->
+
+      <!-- <a-sphere glow="enabled:true; scale:1.3" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere> -->
 
       <!-- trout -->
       <a-entity 
@@ -117,8 +161,8 @@
       <!-- sticks -->
       <a-entity 
         rotation="0 0 0" 
-        position="4 0 30" 
-        animation__1="property: position; to: 16 0 -30; loop:true; dur: 20000; easing: linear;"
+        position="4 0 40" 
+        animation__1="property: position; to: 16 0 -40; loop:true; dur: 40000; easing: linear;"
       >
         <a-entity 
         gltf-model="#stick"
@@ -134,8 +178,8 @@
       <!-- sticks -->
       <a-entity 
         rotation="0 0 0" 
-        position="0 0 30" 
-        animation__1="property: position; to: 12 0 -40; loop:true; dur: 30000; easing: linear; delay:7000"
+        position="1 0 40" 
+        animation__1="property: position; to: 14 0 -40; loop:true; dur: 40000; easing: linear; delay:7000;"
       >
         <a-entity 
         gltf-model="#stick2"
@@ -147,6 +191,23 @@
         >
         </a-entity>
       </a-entity> 
+
+      <a-entity 
+        rotation="0 0 0" 
+        position="5 0 40" 
+        animation__1="property: position; to: 16 0 -40; loop:true; dur: 40000; easing: linear;delay:20000"
+        animation__2="property: rotation; to: 0 180 0; loop: true; dur: 10000; easing: linear; dir:reverse;"
+      >
+        <a-entity 
+        gltf-model="#stick"
+        rotation="0 90 0"
+        scale=".2 .2 .2" 
+        position="2 0 0" 
+        play-all-model-animations
+        box-loader
+        >
+        </a-entity>
+      </a-entity>
 
       <!-- Landscape -->
       <a-entity 
@@ -171,7 +232,7 @@
       </a-entity>
 
       <!-- Light -->
-      <a-light position="-50 200 100" intensity=".8"></a-light>
+      <a-light position="-50 200 100" intensity=".5"></a-light>
 
       <!-- Camera -->
       <a-entity camera="active: true" look-controls position="0 1.6 0" camera-logger></a-entity>
@@ -203,8 +264,19 @@
 
     <!-- Transcript -->
     <div class="c-transcript js-transcript">
-      <p class="c-transcript__paragraph">Lorem superposés valise pourparlers rêver chiots rendez-vous naissance Eiffel myrtille. Grèves Arc de Triomphe encore pourquoi sentiments baguette pédiluve une projet sentiments saperlipopette vachement le. Brume éphémère baguette Bordeaux en fait sommet avoir minitel.</p>
-      <p class="c-transcript__paragraph">Lorem superposés valise pourparlers rêver chiots rendez-vous naissance Eiffel myrtille. Grèves Arc de Triomphe encore pourquoi sentiments baguette pédiluve une projet sentiments saperlipopette vachement le. Brume éphémère baguette Bordeaux en fait sommet avoir minitel.</p>
+      <p class="c-transcript__paragraph"> Vous êtes ici. A la croisée des rues, a la croisée des flux. Au dessus, 145 000 mètre cube d'eaux venues de Rungis et du bassin de la Vanne migre chaque jour vers la capitale dans les interminables tuyaux des aqueducs. S’ils sont d’habitude discrets et souterrains, ils surgissent ici de terre pour enjamber d’un pont une rivière et sa vallée. </p>
+      <p class="c-transcript__paragraph">Sous vos pieds, c’est la Bièvre ; vous la voyez maintenant ? Passée sous silence il y a plus d’un siècle, cette rivière millénaire a longtemps coulé librement, sillonnant et arrosant des prés et des coteaux couverts de vignes, qui feront dès le Moyen Age la réputation et la richesse des moines et seigneurs de la région. Car si les arches de l’aqueduc ont donné à Arcueil son nom, La Bièvre, elle, a profondément marqué son paysage, son histoire et son identité. Même disparue, son esprit et sa silhouette hantent encore l’espace urbain des communes d’Arcueil et de Cachan, y façonnant le tracé des avenues et le relief des buttes, influençant leurs noms de rues et stimulant l’imagination de leurs habitants.</p>
+      <p class="c-transcript__paragraph">Ah, si la Bièvre pouvait parler ! Elle vous relaterait les milliers d’années passés à courir les campagnes désertes, creusant patiemment son sillage au creux des plateaux, et l’abondance de ses berges et de ses flots poissonneux ; elle vous raconterait Lutèce, les premiers ponts et l’aqueduc qu’elle a vu s’élever ; les moulins et abbayes qui s’installèrent sur ses rives encore champêtres, et le sillage de parcs et châteaux qui leur ont succédé ; comme elle s’est sentie flattée de l’attention que lui accordèrent une jeune bande poètes, exaltés par les flots de son cours et de son vin. C’était en 1549, Pierre de Ronsard écrivait:</p>
+      <p class="c-transcript__paragraph">
+        Suivons la sainte trace humide<br/>
+        Suivons la sainte trace humide<br/>
+        De ce guide<br/>
+        Elançons nous comme lui<br/>
+        Et lavons dans cette rive<br/>
+        En l’eau vive<br/>
+        Pour tout jamais notre ennui<br/>
+      </p>
+      <p class="c-transcript__paragraph">La suite plus tragique de son histoire vous la connaissez peut être, c’est le récit d’une urbanisation folle qui en a oublié l’importance de la nature dans la vie humaine, plongeant le cours de la Bièvre dans la disgrâce et l’ombre. Mais c’est aussi aujourd’hui d’une volonté humaine que son cours revoit par endroits le jour, lui rendant sa place et sa valeur au sein des rues asphaltées. Alors suivez sa trace, écoutez la parler, et laissez la vous faire imaginer la ville dans laquelle elle pourrait exister…</p>
     </div>
 
     <!-- Loading screen -->
