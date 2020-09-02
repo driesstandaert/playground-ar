@@ -63,7 +63,7 @@ AFRAME.registerComponent('transparent-in-ar-mode', {
       });
       this.el.sceneEl.addEventListener('exit-vr', (ev) => {
           if (this.wasVisible) this.el.setAttribute('visible', true);
-          this.el.setAttribute('material', 'opacity: 1; transparent: false');      
+          this.el.setAttribute('material', 'opacity: 1; transparent: true');      
       });
   }
 });
