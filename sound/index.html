@@ -2,13 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bievre - markerless</title>
+    <title>Invisible Bievre</title>
     <meta name="description" content="Bievre">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
     <script src="scripts.js"></script>
-    <script src="glow.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css"/>
     <link rel="icon" type="image/png" href="./images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -22,124 +21,114 @@
       <a-assets>
         <a-asset-item id="bievre" src="../assets/animals/bievre/scene.gltf"></a-asset-item>
         <a-asset-item id="trout" src="../assets/animals/trout/scene.gltf"></a-asset-item>
-        <a-asset-item id="landscape" src="../assets/landscape/scene.gltf"></a-asset-item>
+        <a-asset-item id="tree" src="../assets/tree/scene.gltf"></a-asset-item>
+        <a-asset-item id="landscape" src="../assets/landscape/scene2.gltf"></a-asset-item>
         <a-asset-item id="bridge" src="../assets/bridge/scene.gltf"></a-asset-item>
         <a-asset-item id="stick" src="../assets/stick/scene.gltf"></a-asset-item>
         <a-asset-item id="stick2" src="../assets/stick2/scene.gltf"></a-asset-item>
-        <img
-          id="water-normal"
-          src="./textures/waternormals.jpg"
-          crossorigin="anonymous"
-        />
-        <img
-          id="skysphere"
-          src="./images/riverbed-dark.jpg"
-          crossorigin="anonymous"
-        />
-        <img
-          id="reflection"
-          src="./images/sky-dark.jpg"
-          crossorigin="anonymous"
-        />
+        <img id="water-normal" src="./textures/waternormals.jpg" crossorigin="anonymous"/>
+        <img id="skysphere" src="./images/riverbed-dark.jpg" crossorigin="anonymous"/>
+        <img id="reflection" src="./images/sky-dark.jpg" crossorigin="anonymous" />
+        <img id="tree-1" src="./images/tree-1.png" crossorigin="anonymous" />
+        <img id="tree-2" src="./images/tree-2.png" crossorigin="anonymous" />
+        <img id="trees" src="./images/trees.png" crossorigin="anonymous" />
       </a-assets>
 
-      <!-- Water plane -->
-      <a-ocean-plane
-         material="normalMap: #water-normal; sphericalEnvMap: #reflection;"
-         position="0 0 0"
-         box-loader 
-       >
-      </a-ocean-plane>
+      <!-- Camera -->
+      <a-entity camera="active: true;" look-controls position="0 1.6 0" camera-logger></a-entity>
 
-
-      <!-- <a-ocean
-      width='50' 
-      depth='50'
-      density='1'  
-      color='#5CAACE'  
-      position='0 0 0' 
-      opacity='.6'
-      speed='0.5'
-      speedVariance='1'>
-        ></a-ocean> -->
-
-      <!-- Sky background -->
-      <a-sky src="#skysphere" hide-in-ar-mode></a-sky>
-
-      <!-- animation__2="property: position; to: 0 0 0; loop:true; dur: 2000; easing: linear; dir:alternate;" -->
-
-      <!-- Beaver -->
-      <!-- <a-entity 
-        rotation="0 0 -15"
-        position="11.5 0 -3"  
-        animation="property: rotation; to: 0 360 -15; loop: true; dur: 30000; easing: linear;"
-      >
-      <a-entity 
-        id="bievre-model"
-        gltf-model="#bievre" 
-        scale="1 1 1"
-        position="0 -.5 -4"
-        rotation="0 100 0"
-        play-all-model-animations
-        box-loader
+      <!-- Group -->
+      <a-entity rotation="0 120 0">
+        
+        <!-- Water plane -->
+        <a-ocean-plane
+          material="normalMap: #water-normal; sphericalEnvMap: #reflection;"
+          position="0 0 0"
+          box-loader 
         >
-      </a-entity>
-      </a-entity>  -->
+        </a-ocean-plane>
 
-      <a-entity 
-        rotation="0 0 0"
-        position="14 -.75 -30"  
-        animation="property: position; to: -14 -.75 100; loop: true; dur: 157000; easing: linear;"
-      >
-      <!-- <a-entity 
-        id="bievre-model"
-        gltf-model="#bievre" 
-        scale="2 2 2"
-        position="0 -.5 -4"
-        rotation="15 150 0"
-        play-all-model-animations
-        box-loader
+        <!-- <a-ocean
+        width='50' 
+        depth='50'
+        density='1'  
+        color='#5CAACE'  
+        position='0 0 0' 
+        opacity='.6'
+        speed='0.5'
+        speedVariance='1'>
+          ></a-ocean> -->
+
+        <!-- Sky background -->
+        <a-sky src="#skysphere" hide-in-ar-mode></a-sky>
+        <a-sky class="js-sky" color="#2B3036" foo hide-in-ar-mode>
+        </a-sky>
+
+        <!-- Light -->
+        <!-- <a-light position="-10 100 100" intensity="1"></a-light> -->
+        <a-entity 
+          class="js-light"
+          position="-10 100 100" 
+          light="color: #ffffff; intensity: 0"
+        ></a-entity>
+
+        <!-- animation__2="property: position; to: 0 0 0; loop:true; dur: 2000; easing: linear; dir:alternate;" -->
+
+        <!-- Beaver -->
+        <!-- <a-entity 
+          rotation="0 0 -15"
+          position="11.5 0 -3"  
+          animation="property: rotation; to: 0 360 -15; loop: true; dur: 30000; easing: linear;"
         >
-        <a-light type="point" color="blue" position="0 0 0" distance="5"></a-light>
-      </a-entity> -->
-      <a-entity 
-        id="bievre-model"
-        gltf-model="#bievre" 
-        scale="2 2 2"
-        position="0 0 0"
-        rotation="15 150 0"
-        play-all-model-animations
-        box-loader
+        <a-entity 
+          id="bievre-model"
+          gltf-model="#bievre" 
+          scale="1 1 1"
+          position="0 -.5 -4"
+          rotation="0 100 0"
+          play-all-model-animations
+          box-loader
+          >
+        </a-entity>
+        </a-entity>  -->
+
+        <a-entity 
+          rotation="0 0 0"
+          position="14 -1 -30"  
+          animation="property: position; to: -14 -.75 100; loop: true; dur: 157000; easing: linear;"
         >
-        <a-light type="point" color="white" position="0 2 0" distance="10" angle="0"></a-light>
-        <a-light type="point" color="white" position="0 -.25 -1" distance="4" angle="180"></a-light>
-        <a-light type="point" color="white" position="-1 -.25 0" distance="4" angle="180"></a-light>
-        <a-light type="point" color="white" position="1 -.25 0" distance="4" angle="180"></a-light>
-        <a-light type="point" color="white" position="0.217 0.393 -2.003" distance="4" angle="180"></a-light>
-        <!-- <a-light type="point" color="white" position="1.207 1.741 -1.269" distance="10" angle="0"></a-light>
-        <a-light type="point" color="white" position="0 -.25 -1" distance="4" angle="180"></a-light> -->
-      </a-entity>
-      
-      </a-entity> 
+        
+        <a-entity 
+          id="bievre-model"
+          gltf-model="#bievre" 
+          scale="2 2 2"
+          position="0 0 0"
+          rotation="15 150 0"
+          play-all-model-animations
+          box-loader
+          >
+          <!-- <a-light type="point" color="white" position="0 2 0" distance="10" angle="0"></a-light>
+          <a-light type="point" color="white" position="0 -.25 -1" distance="4" angle="180"></a-light>
+          <a-light type="point" color="white" position="-1 -.25 0" distance="4" angle="180"></a-light>
+          <a-light type="point" color="white" position="1 -.25 0" distance="4" angle="180"></a-light>
+          <a-light type="point" color="white" position="0.217 0.393 -2.003" distance="4" angle="180"></a-light> -->
+          <a-light type="point" color="white" position="1.207 1.741 -1.269" distance="10" angle="0"></a-light>
+          <a-light type="point" color="white" position="0 -.25 -1" distance="4" angle="180"></a-light>
+        </a-entity>
+        
+        </a-entity> 
 
-      <!-- <a-entity 
-        id="bievre-model"
-        gltf-model="#bievre" 
-        scale="2 2 2"
-        position="7 -.25 -5"
-        rotation="15 150 0"
-        play-all-model-animations
-        box-loader
-        >
-        <a-light type="point" color="white" position="0 2 0" distance="10" angle="0"></a-light>
-        <a-light type="point" color="white" position="0 -.25 -1" distance="4" angle="180"></a-light>
-        <a-light type="point" color="white" position="-1 -.25 0" distance="4" angle="180"></a-light>
-        <a-light type="point" color="white" position="1 -.25 0" distance="4" angle="180"></a-light>
-        <a-light type="point" color="white" position="0.217 0.393 -2.003" distance="4" angle="180"></a-light>
-      </a-entity> -->
 
-      <!-- <a-sphere glow="enabled:true; scale:1.3" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere> -->
-
+        <!-- <a-entity 
+          gltf-model="#bievre" 
+          scale="2 2 2"
+          position="10 -1 -6"
+          rotation="15 150 0"
+          play-all-model-animations
+          box-loader
+          >
+        </a-entity> -->
+        
       <!-- trout -->
       <a-entity 
         rotation="0 0 0" 
@@ -156,8 +145,8 @@
         box-loader
         >
         </a-entity>
-      </a-entity>   
-      
+      </a-entity>  
+        
       <!-- sticks -->
       <a-entity 
         rotation="0 0 0" 
@@ -167,8 +156,8 @@
         <a-entity 
         gltf-model="#stick"
         rotation="0 0 0"
-        scale=".3 .3 .3" 
-        position="2 0 0" 
+        scale="1 1 1" 
+        position="2 -.15 0" 
         play-all-model-animations
         box-loader
         >
@@ -184,7 +173,7 @@
         <a-entity 
         gltf-model="#stick2"
         rotation="0 0 0"
-        scale=".1 .1 .1" 
+        scale=".4 .4 .4" 
         position="0 0 0" 
         play-all-model-animations
         box-loader
@@ -202,7 +191,7 @@
         <a-entity 
         gltf-model="#stick"
         rotation="0 90 0"
-        scale=".2 .2 .2" 
+        scale=".5 .5 .5" 
         position="2 0 0" 
         play-all-model-animations
         box-loader
@@ -222,7 +211,28 @@
         >
       </a-entity>
 
-       <!-- bridge -->
+      <!-- tree -->
+      <!-- <a-image src="#tree-1" width="30" height="18" position="14 7 22" rotation="0 250 0">
+        <a-image src="#tree-2" width="30" height="15" position="-10 -2 -5"></a-image>
+      </a-image> -->
+
+      <a-image id="img-trees-1" src="#trees" width="30" height="18" position="22 9 18" rotation="0 244 0"></a-image>
+      <a-image id="img-trees-2" src="#tree-2" width="30" height="16" position="17 6 26" rotation="0 240 0"></a-image>
+      <a-image id="img-trees-2" src="#tree-1" width="30" height="16" position="-7 4.5 12" scale=".5 .5 .5" rotation="0 -40 0"></a-image>
+      
+      <a-entity
+      id="tree-model"
+      gltf-model="#tree" 
+      scale="1 1 1"
+      position="-7 2 3"
+      rotation="0 0 0"
+      play-all-model-animations
+      box-loader
+      >
+      </a-entity>
+
+
+      <!-- bridge -->
       <a-entity 
         gltf-model="#bridge" 
         scale="1 1 1" 
@@ -234,11 +244,9 @@
         >
       </a-entity>
 
-      <!-- Light -->
-      <a-light position="-50 200 100" intensity=".5"></a-light>
+    </a-entity>
 
-      <!-- Camera -->
-      <a-entity camera="active: true" look-controls position="0 1.6 0" camera-logger></a-entity>
+     
     
       <!-- AR/VR buttons -->
       <div class="c-enter js-enter">
@@ -293,7 +301,7 @@
 
     <!-- Begin screen -->
     <div class="c-overlay c-overlay--landing js-landing is-visible">
-      <div class="c-overlay__content">
+      <div class="c-overlay__content js-landing-content">
         <div class="c-overlay__logo">
           <svg class="js-logo" width="100%" height="100%" viewBox="0 0 319 270" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="64.8952" cy="60.39" r="1.8249" fill="#ECCAB8"/>

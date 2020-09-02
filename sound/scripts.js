@@ -87,7 +87,7 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 			normalTextureRepeat: '50 50',
 			normalTextureOffset: '0 0',
 			normalScale: '0.5 0.5',
-			opacity: 0.6
+			opacity: 0 // Start opacity 0. See animation on Start event.
 		},
 		'wobble-normal': {}
 	},
@@ -341,12 +341,36 @@ AFRAME.registerComponent('tree-manager', {
 // });
 
 
+AFRAME.registerComponent('model-opacity', {
+  schema: {default: 1.0},
+  init: function () {
+    this.el.addEventListener('model-loaded', this.update.bind(this));
+  },
+  update: function () {
+    var mesh = this.el.getObject3D('mesh');
+    var data = this.data;
+    if (!mesh) { return; }
+    mesh.traverse(function (node) {
+      if (node.isMesh) {
+        node.material.opacity = data;
+        node.material.transparent = data < 1.0;
+        node.material.needsUpdate = true;
+      }
+    });
+  }
+});
+
+
 
 
 
 
 window.onload = function () {
   var scene = document.querySelector('a-scene');
+  var sky = document.querySelector('.js-sky');
+  var ocean = document.querySelector('a-ocean-plane');
+  var light = document.querySelector('.js-light');
+
   var btnMute = document.querySelector('.js-mute__button');
   var btnPlay = document.querySelector('.js-play__button');
   var btnTranscript = document.querySelector('.js-transcript__button');
@@ -357,6 +381,7 @@ window.onload = function () {
 
   var btnStart = document.querySelector('.js-start__button');
   var landing = document.querySelector('.js-landing');
+  var landingContent = document.querySelector('.js-landing-content');
 
   btnMute.addEventListener('click', function () {
     this.classList.toggle('is-muted');
@@ -394,18 +419,35 @@ window.onload = function () {
   });
 
   btnStart.addEventListener('click', function () {
-    landing.classList.remove('is-visible'); 
+    //landing.classList.remove('is-visible');
+    landingContent.classList.add('is-hidden');
     btnPlay.classList.add('is-playing');
     loadinganime = false; // intro animation until scene starts
     function playSound () {
       soundRiver.play();
       soundVoiceover.play();
     }
+    function fadeInScene () {
+      sky.setAttribute('animation__fadein', 'property: material.opacity; from: 1; to: 0; dur: 4000; delay:0');
+      light.setAttribute('animation', 'property: light.intensity; to: 1; dur: 2000; easing: linear; delay:0');
+      ocean.setAttribute('animation', 'property: material.opacity; from: 0; to: .6; dur: 2000; delay:0');
+    }
+
     setTimeout(
       function () {
-        (scene.hasLoaded) ? playSound() : scene.addEventListener('loaded', playSound);
+        // (scene.hasLoaded) ? playSound() : scene.addEventListener('loaded', playSound);
+        if (scene.hasLoaded) {
+          playSound();
+          fadeInScene();
+          landing.classList.remove('is-visible');
+        } else {
+          scene.addEventListener('loaded', playSound);
+          scene.addEventListener('loaded', fadeInScene);
+          landing.classList.remove('is-visible');
+        }
       }, 1000
     );
+    
   });
 
   ////////////////////////////
@@ -502,6 +544,24 @@ var soundRiver = new Howl({
 //       this.el.setAttribute('position', pos)
 //   }
 // })
+
+
+// component definition 
+AFRAME.registerComponent('foo', {
+
+  // this is called upon initialisation
+  init: function() {
+
+     // grab all the domino pieces
+     var sky = document.getElementsByClassName('js-sky')
+
+     // if this one gets pressed...
+     this.el.addEventListener('click', e => {
+      sky.emit('go')
+     })
+   }
+})
+
 
 
 
