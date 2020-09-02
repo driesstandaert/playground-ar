@@ -419,7 +419,7 @@ window.onload = function () {
   });
 
   btnStart.addEventListener('click', function () {
-    //landing.classList.remove('is-visible');
+    
     landingContent.classList.add('is-hidden');
     btnPlay.classList.add('is-playing');
     loadinganime = false; // intro animation until scene starts
@@ -441,12 +441,11 @@ window.onload = function () {
         if (scene.hasLoaded) {
           playSound();
           fadeInScene();
-          landing.classList.remove('is-visible');
         } else {
           scene.addEventListener('loaded', playSound);
           scene.addEventListener('loaded', fadeInScene);
-          landing.classList.remove('is-visible');
         }
+        landing.classList.remove('is-visible');
       }, 1000
     );
     
