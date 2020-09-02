@@ -42,14 +42,28 @@ AFRAME.registerComponent('hide-in-ar-mode', {
       this.el.sceneEl.addEventListener('enter-vr', (ev) => {
           this.wasVisible = this.el.getAttribute('visible');
           if (this.el.sceneEl.is('ar-mode')) {
-              this.el.setAttribute('material', 'opacity: 0.2; transparent: true');
               this.el.setAttribute('visible', false);
           }
       });
       this.el.sceneEl.addEventListener('exit-vr', (ev) => {
           if (this.wasVisible) this.el.setAttribute('visible', true);
-          this.el.setAttribute('material', 'opacity: 1; transparent: false');  
           this.el.setAttribute('visible', true);        
+      });
+  }
+});
+
+AFRAME.registerComponent('transparent-in-ar-mode', {
+  // Set this object semi transparent while in AR mode. Only images
+  init: function () {
+      this.el.sceneEl.addEventListener('enter-vr', (ev) => {
+          this.wasVisible = this.el.getAttribute('visible');
+          if (this.el.sceneEl.is('ar-mode')) {
+              this.el.setAttribute('material', 'opacity: 0.2; transparent: true');
+          }
+      });
+      this.el.sceneEl.addEventListener('exit-vr', (ev) => {
+          if (this.wasVisible) this.el.setAttribute('visible', true);
+          this.el.setAttribute('material', 'opacity: 1; transparent: false');      
       });
   }
 });
