@@ -424,7 +424,9 @@ window.onload = function () {
     btnPlay.classList.add('is-playing');
     loadinganime = false; // intro animation until scene starts
     function playSound () {
-      soundRiver.play();
+      var id1 = soundRiver.play();
+      soundRiver.fade(0, .1, 2000, id1);
+      //soundRiver.play();
       soundVoiceover.play();
     }
     function fadeInScene () {
